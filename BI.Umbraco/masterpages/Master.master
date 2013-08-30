@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/umbraco/masterpages/default.Master" AutoEventWireup="true" Debug="true" CodeBehind="Master.master.cs" Inherits="BI.Umbraco.masterpages.Master" %>
+<%@ Register TagPrefix="cd" Namespace="ClientDependency.Core.Controls" Assembly="ClientDependency.Core" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server">
+    <!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <html class="no-js">
+    <!--<![endif]-->
+
+    <head>
+
+        <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width">
+        <title>
+        <asp:Literal ID="litTitle" runat="server" /></title>
+        <asp:Literal ID="litMetaTags" runat="server" />
+        <cd:ClientDependencyLoader runat="server" ID="Loader" ProviderName="PlaceHolderProvider" />
+       <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+        <cd:CssInclude ID="CssInclude1" runat="server" FilePath="~/css/bootstrap.css" Priority="100" />
+        <cd:CssInclude ID="CssInclude2" runat="server" FilePath="~/css/font-awesome.css" Priority="200" />
+        <cd:CssInclude ID="CssInclude6" runat="server" FilePath="~/css/bootstrap-responsive.css" Priority="300" />
+        <cd:CssInclude ID="CssInclude4" runat="server" FilePath="~/css/lemmon-slider.less" Priority="400" />
+        <cd:CssInclude ID="CssInclude3" runat="server" FilePath="~/css/entypo.css" Priority="400" />
+        <cd:CssInclude ID="CssInclude7" runat="server" FilePath="~/css/gallery-folio-masonry.less" Priority="400" />
+        <cd:CssInclude ID="CssInclude8" runat="server" FilePath="~/css/portfolio.less" Priority="400" />
+        <cd:CssInclude ID="CssInclude9" runat="server" FilePath="~/css/fancybox.css" Priority="400" />
+        <cd:CssInclude ID="site" runat="server" FilePath="~/css/site.less" Priority="500" />
+       <!--[if lt IE 9]>
+            <link href="/css/ie.css" rel="stylesheet">
+            <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+
+        <![endif]-->
+        <asp:PlaceHolder runat="server" ID="CssPlaceholder" />
+    <script src="/scripts/modernizr-2.6.2.js"></script>
+    </head>
+    <body >
+        <form id="Form1" runat="server">
+            <section class="block browserbar display-none">
+                <div class="clearfix alert  ">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <span><strong> <i class="icon-warning-sign"></i> Meddelse!</strong> Du kan få en bedre oplevelse på Biltorvet.as ved at <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">opdatere din browser</a>.</span>
+
+                </div>
+            </section>
+         
+
+        <!-- Start: Primary navigation -->
+        <umbraco:Macro ID="Macro1" runat="server" FileLocation="~/macroscripts/navigation/TopMenu.cshtml" />
+
+        <!-- Start: HEADER -->
+            <asp:ContentPlaceHolder runat="server" ID="HeaderContentPlaceHolder">
+            </asp:ContentPlaceHolder>
+        <!-- End: HEADER -->
+
+        <!-- Start: MAIN CONTENT -->
+        <asp:ContentPlaceHolder runat="server" ID="BodyContentPlaceholder">
+        </asp:ContentPlaceHolder>
+        <!-- End: MAIN CONTENT -->
+
+        <!-- Start: FOOTER -->
+        <asp:ContentPlaceHolder runat="server" ID="FooterContentPlaceHolder">
+        </asp:ContentPlaceHolder>
+        <section class="block footer">
+        <footer>
+            <div class="container" id="footer">
+                <div class=" row">
+           
+                <div class="span3">
+                            <umbraco:Macro ID="Macro3" runat="server" FileLocation="~/macroscripts/navigation/FooterMenu.cshtml" />
+                    </div>
+                    <div class="span3">
+<%--                        <umbraco:Macro ID="Macro2" runat="server" FileLocation="~/macroscripts/tiles/BiltorvetNewsTeaserList.cshtml" />--%>
+                    </div>
+                    <div id="pagefeed" class="span3">
+                            <umbraco:Macro ID="Macro4" runat="server" FileLocation="~/macroscripts/tiles/AutodesktopNewsTeaserList.cshtml" />
+
+                    </div>
+                    <div class="span3">
+                    </div>
+             
+                </div>
+            </div>
+  
+        </footer>
+        </section>
+        <section class="footer-credits">
+               
+            
+            <div class="container">
+				<ul class="clearfix">
+						<li> Copyright &copy;2013 Blikkenslageren Int .</li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+				</ul>
+		</div>
+        </section>
+        <!-- End: FOOTER -->
+        <asp:PlaceHolder runat="server" ID="JavascriptPlaceholder" />
+        <cd:JsInclude ID="JsInclude2" runat="server" FilePath="~/scripts/jquery-1.9.1.js" Priority="100" />
+        <cd:JsInclude ID="JsInclude3" runat="server" FilePath="~/scripts/bootstrap.min.js" Priority="200" />
+        <cd:JsInclude ID="JsInclude5" runat="server" FilePath="~/scripts/lemmon-slider.js" Priority="300" />
+        <cd:JsInclude ID="JsInclude6" runat="server" FilePath="~/scripts/jquery.easytabs.min.js" Priority="300" />
+        <cd:JsInclude ID="JsInclude7" runat="server" FilePath="~/scripts/isotope_custom.min.js" Priority="300" />
+        <cd:JsInclude ID="JsInclude8" runat="server" FilePath="~/scripts/jquery.flexslider.js" Priority="300" /> <%--https://github.com/woothemes/FlexSlider/issues/408--%>
+        <cd:JsInclude ID="JsInclude4" runat="server" FilePath="~/scripts/fancybox.js" Priority="300" />
+
+        <cd:JsInclude ID="JsInclude1" runat="server" FilePath="~/scripts/ui.js" Priority="700" />
+
+
+        <asp:ContentPlaceHolder runat="server" ID="JavascriptContentPlaceholder">
+            <!-- Masterpage content scripts should be inserted here -->
+        </asp:ContentPlaceHolder>
+
+        <script type="text/javascript">
+                jQuery(function () {
+                    //Global.browser();
+
+                });
+            
+              
+        </script>
+        
+          </form>
+    </body>
+    </html>
+
+</asp:Content>

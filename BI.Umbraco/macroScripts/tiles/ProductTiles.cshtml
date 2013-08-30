@@ -1,0 +1,29 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<List<StandardValueItem>> productListList = NodeRepository.Split(NodeRepository.GetProductlists());
+
+}      @for (int j = 0; j < productListList.Count; j++)
+        {
+            <div class="row-fluid">
+            @for (int i = 0; i < productListList[j].Count; i++)
+            {
+                <div class="span6">
+                    <h2>@productListList[j][i].Header</h2>
+                    @Html.Raw(productListList[j][i].Description)
+                    <p><a class="btn" href="@productListList[j][i].Url">Læs mere &raquo;</a></p>
+                </div>
+            }
+            </div>
+        } 
+    
+
+
+
+
+
+
+

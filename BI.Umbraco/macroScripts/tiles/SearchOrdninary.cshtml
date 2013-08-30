@@ -1,0 +1,103 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+   string  searchTerm = Request.QueryString["key"] != null && !string.IsNullOrEmpty(Request.QueryString["key"].ToString()) ? Request.QueryString["key"].ToString() : "";
+    List<SearchItem> results = new List<SearchItem>();
+    List<List<SearchItem>> tileListList = new List<List<SearchItem>>();
+    int totalResult=0;
+    if(!string.IsNullOrEmpty(searchTerm))
+    {
+        results =NodeRepository.GetPages(searchTerm);
+
+        if (results != null && results.Any())
+        {
+            totalResult = results.Count;
+        }
+    }
+
+
+}
+    <div class='row fourColumns carBrandTiles  clearfix '>
+        <div id="searchResultsCount">Omkring @totalResult.ToString() resultat(er)</div>
+       <div id="searchResultsText">Viser resultater for <span> @searchTerm</span></div>  
+    </div>
+<div class="searchWrapper clearfix">
+
+    @if (results != null && results.Any())
+        {
+
+        for (int i = 0; i < results.Count; i++)
+        {
+   
+
+
+       
+            <div class="searchItem clearfix">
+                <h1>@CreateHeader(results[i]) </h1>
+                <div class="">
+                    <div class="searchDate">
+                        @results[i].Node.CreateDate.ToString("dd-MM-yyyy")
+                    </div>
+                    <div class="searchContent">
+                        @Html.Raw(results[i].Description)
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+                    <div class="searchButton">
+                        @CreateLink(results[i])
+
+                    </div>
+                </div>
+            </div>
+
+        }  
+    }
+</div> 
+@if (results != null && results.Any())
+{
+    <div class="row clearfix">
+        <div class="separator"></div>
+    </div>
+}  
+
+    @helper CreateLink(SearchItem tileItem){
+        if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+        {  <div class="clearfix">
+            <a  class="tileButton"  target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" ><span>Læs mere</span></a>
+            </div>
+        }
+        else 
+        {
+              <div class="clearfix">
+            <a  class="tileButton"  href="@tileItem.LinkIntern.Url" ><span>Læs mere</span></a>
+                  </div>
+        }
+    }
+
+
+    @helper CreateHeader(SearchItem tileItem)
+{
+    
+        if (tileItem != null && !string.IsNullOrEmpty(tileItem.Header))
+        {
+            if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+            {
+              <a class="tileLink " target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" >@tileItem.Header</a>
+
+            }
+            else 
+            {
+                <a class="tileLink "  href="@tileItem.LinkIntern.Url" >@tileItem.Header</a>
+            }
+        }
+
+    }
+  
+ 
+
+
+

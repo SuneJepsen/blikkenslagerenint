@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Page404.master.cs" Inherits="BI.Umbraco.masterpages.Page404" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+                <h1><%:StandardValueItem.HeroTitle %></h1>
+                <p class="lead"><%:StandardValueItem.HeroDescription %></p>
+            </div>
+        </header>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <section class="block textpage">
+
+        <div id="main-section" class="container">
+            <div class="hgroup">
+                <h1><%:StandardValueItem.Header %></h1>
+
+            </div>
+            <div class="row">
+                <div id="leftCol" class="span8">
+                    <article>
+                        <%=RenderImage() %>
+                        <%:StandardValueItem.BodyText1 %>
+                    </article>
+                </div>
+   
+            </div>
+        </div>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+  
+</asp:Content>

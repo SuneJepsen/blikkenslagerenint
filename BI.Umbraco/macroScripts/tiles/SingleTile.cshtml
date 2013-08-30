@@ -1,0 +1,80 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    TileItem tileItem = NodeRepository.GetSingleTile(@Model.tileLeft);
+    
+}
+
+
+<div class="groupLeft">
+    @CreateHeader(tileItem)
+    <div class="tileLeft">
+        @CreateImage(tileItem)
+        <div class="intro">
+           @Html.Raw(tileItem.DescriptionLarge)                                  
+        </div>
+        <div>
+            @CreateLink(tileItem)
+        </div>
+    </div>
+</div>
+
+
+ @helper CreateLink(TileItem tileItem){
+        if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+        {
+            <a  class="tileButton"  target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" ><span>@tileItem.LinkIntern.LinkText</span></a>
+        }
+        else 
+        {
+            <a  class="tileButton"  href="@tileItem.LinkIntern.Url" ><span>@tileItem.LinkIntern.LinkText</span></a>
+        }
+    }
+
+    @helper CreateImage(TileItem tileItem){
+        
+        var picUrl = tileItem.PictureUrl;
+        if (string.IsNullOrWhiteSpace(picUrl))
+        {
+            picUrl = "/images/no-picture.jpg";
+        }
+        
+        if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+        {
+            <a class="tileLink imageMarginBottom"  target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url"  >
+                <img src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilelarge" })"  />
+                <span class="tileImageBackground"></span>
+
+            </a>        
+        }
+        else 
+        {
+            <a class="tileLink imageMarginBottom" href="@tileItem.LinkIntern.Url" >
+                <img src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilelarge" })"  />
+                <span class="tileImageBackground"></span>
+            </a>
+        }
+   
+    }
+    @helper CreateHeader(TileItem tileItem){
+    
+        if (tileItem != null && !string.IsNullOrEmpty(tileItem.Header))
+        {
+            if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+            {
+                <h2><a class="tileLink " target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" >@tileItem.HeaderLarge</a></h2>
+
+            }
+            else 
+            {
+                <h2><a class="tileLink "  href="@tileItem.LinkIntern.Url" >@tileItem.HeaderLarge</a></h2>
+            }
+        }
+
+    }
+
+
+

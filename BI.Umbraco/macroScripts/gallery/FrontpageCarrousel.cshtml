@@ -1,0 +1,87 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using BI.Repository.DataAccessLayer;
+@using System.Configuration;
+
+@{
+    string customClasses = "";
+
+    string usedCarlistCsv = @Model.frontpageUsedCarSlider;
+    List<BilerTilWebXmlFeed> carlist = new List<BilerTilWebXmlFeed>();
+    DAL dal = new DAL();
+
+    if(string.IsNullOrEmpty(usedCarlistCsv))
+    {
+
+        carlist = dal.Get6CarsRandomCarsToFrontpage(); 
+    }
+    else
+    {
+
+        List<string>  usedCarlistList = usedCarlistCsv.Split(',').ToList();
+        foreach (var carid in usedCarlistList)
+        {
+            carlist.Add(dal.GetCarByCarID(carid));
+        }
+
+    }
+
+    string imageUrl =ConfigurationManager.AppSettings["imageUrl"];
+    string imageSize = "_1.jpg&amp;size=163";
+    List<List<BilerTilWebXmlFeed>> carListList = dal.Split(carlist);
+}
+<div class="groupLeft last carouselContainer">
+                <h2>Nyeste brugtbiler</h2>
+                <div id="carouselOuter">
+                    <div id="carouselInner" class="flexslider">
+                        <ul class="slides">
+                          
+                            @for (int j = 0; j < carListList.Count; j++)
+                            {
+                                 <li>
+
+                                 @for (int i = 0; i < carListList[j].Count; i++)
+                                  {
+                                      if (i != 0 && (i + 1) % 2 == 0)
+                                      {
+                                          customClasses = "highlight";
+                                      }
+
+                                    <div class="item @customClasses">
+                                        <span class="gradient"></span>
+                                        <div class="flexSliderOuter">
+                                            <img width="163" height="123" src='@imageUrl@carListList[j][i].BBilID@imageSize'
+                                            alt='Autohusetvestergaard-@carListList[j][i].BBilModel' onerror="this.src='/images/no-image-car.jpg'"  />
+                                            <div class="flexSliderInner">
+                                                <span class="clearfix info" >
+                                                    <span class="title">@carListList[j][i].BBilFabrikat @carListList[j][i].BBilModel
+                                                    </span>
+                                                    <span class="price">kr. @(string.IsNullOrEmpty(carListList[j][i].BBilPrisFormateret) ? "ej angiver" : carListList[j][i].BBilPrisFormateret)
+                                                    </span>
+                                                </span>
+                                                <a class='button @(!string.IsNullOrEmpty(customClasses) ? "" : "hide")' href='/brugte-biler/bil/@carListList[j][i].BBilID'><span>Se bilen</span></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                      if (!string.IsNullOrEmpty(customClasses))
+                                      {
+                                          customClasses = "";
+                                      }
+                                
+                                  }
+                                </li>
+                            }
+                         
+                        </ul>
+                    </div>
+                </div>
+                <div id="carouselLink">
+                    <a href="/brugte-biler.aspx">Se alle brugte biler</a>
+                </div>
+            </div>
+
+
+

@@ -1,0 +1,55 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using System.Configuration;
+
+@{
+    PortfolioItem item = new PortfolioItem(@Model.Id);
+    List<ImageItem> images = item.GetMediaItems();
+}
+
+<!-- Begin Carousel -->
+				<div id="carousel" class="flexslider">
+				    <ul class="slides">
+				        @foreach (ImageItem image in images)
+				        {
+				            
+				            <li ><img src="@CropUp.GetUrl(image.PictureUrl, new ImageSizeArguments { CropAlias = "thumb" })" alt="@image.AltText"  /></li>
+                
+				        }
+				        <!--notice that these are background images because youtube and vimeo images fetched dynamically are not the same size-->
+				@*        <li><img src="/images/portfolio/2.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/3.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/4.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/5.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/6.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/7.jpg" alt=""></li>
+				        <li><img src="/images/portfolio/2.jpg" alt=""></li>*@
+				    </ul>
+				</div>
+				<!-- End Carousel --> 
+				
+				<!-- Begin Slider -->
+				<div id="slider" class="flexslider">
+				    <ul class="slides">
+				        @foreach (ImageItem image in images)
+				        {
+				            
+                
+                			<li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="@image.PictureUrl">View Larger Image</a> <img  src="@image.PictureUrl" alt="@image.AltText"></li>
+
+                
+				        }
+			@*	        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/1-lrg.jpg">View Larger Image</a> <img width="750" src="/images/portfolio/1.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/2-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/2.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/3-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/3.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/4-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/4.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/5-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/5.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/6-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/6.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/7-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/7.jpg" alt=""></li>
+				        <li> <a class="zoom-image fancyme" data-fancybox-group="portfolio" href="/images/portfolio/2-lrg.jpg">View Larger Image</a> <img src="/images/portfolio/2.jpg" alt=""></li>*@
+
+				    </ul>
+				</div>
+				<!-- End Slider --> 

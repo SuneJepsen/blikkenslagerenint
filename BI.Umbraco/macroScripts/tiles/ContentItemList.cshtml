@@ -1,0 +1,438 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using umbraco.NodeFactory;
+
+@{
+   
+    List<ContentItem> contentItemList = new List<ContentItem>();
+    contentItemList = NodeRepository.GetContentItems(new Node(@Model.Id));
+    
+    
+   
+}
+@for (int j = 0; j < contentItemList.Count; j++)
+{
+
+
+
+    switch (contentItemList[j].NodeTypeAlias)
+    {
+        case UmbracoEnum.DocumentTypeAlias.OneColumn:
+            <div id="@contentItemList[j].UrlName">
+                <div class="row">
+                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                    <p class="lead">
+                        @contentItemList[j].Manchet
+                    </p>
+                    @contentItemList[j].BodyText1
+                </div>
+            </div>
+            break;
+        case UmbracoEnum.DocumentTypeAlias.TwoColumn:
+            <div class="row" role="region" id="brackets">
+                <div class="sixcol">
+                    <img src="/images/brackets.jpg" alt="Brackets" class="section-image">
+                </div>
+                <div class="sixcol last">
+                    <h3>Biltorvet nyt design</h3>
+                    <p><a href="http://brackets.io/" target="_blank">Brackets</a> is a new open source code editor for HTML, CSS and JavaScript built with HTML, CSS and JavaScript.</p>
+                    <p>Interested in getting involved by building new features or adding extensions? Visit <a href="https://github.com/adobe/brackets" target="_blank">the project</a> on GitHub to learn how to hack on Brackets and fork the project.</p>
+                    <a class="btn" href="#">Læs mere &raquo;</a>
+
+                </div>
+            </div>
+            break;
+        case UmbracoEnum.DocumentTypeAlias.ThreeColumn:
+            <div class="threeCol" id="@contentItemList[j].UrlName">
+                <div class="row">
+                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                    <div class="row">
+
+                        <div class="span4 painted-block">
+                            <div class="f-block b-green">
+                                @contentItemList[j].Icon1
+                                @contentItemList[j].BodyText1
+                            </div>
+                        </div>
+
+                        <div class="span4 painted-block">
+                            <div class="f-block b-orange">
+                                @contentItemList[j].Icon2
+
+                                @contentItemList[j].BodyText2
+                            </div>
+                        </div>
+
+                        <div class="span4 painted-block">
+                            <div class="f-block b-lblue">
+                                @contentItemList[j].Icon3
+
+                                @contentItemList[j].BodyText3
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            break;
+        case UmbracoEnum.DocumentTypeAlias.EmployeeFolder:
+            <div id="@contentItemList[j].UrlName">
+                <div class="row">
+                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                    @{
+                        List<EmployeeFolder> employeeFolders = NodeRepository.GetEmployeeFolders(contentItemList[j].Node);
+                        IEnumerable<Employee> employees = null;
+                        for (int i = 0; i < employeeFolders.Count; i++)
+                        {
+                            <div class="row">
+                                @{
+                                    <h2>@employeeFolders[i].Header</h2>
+                                    employees = employeeFolders[i].Employees;
+                                }
+                                <ul class="thumbnails thumbnails-centered">
+                                    @{
+                                        var enumerable = employees as IList<Employee> ?? employees.ToList();
+                                        string imageUrl = string.Empty;
+                                    }
+                                    @for (int k = 0; k < enumerable.Count(); k++)
+                                    {
+                                        imageUrl = enumerable[k].Image.PictureUrl;
+                                        if (string.IsNullOrWhiteSpace(imageUrl))
+                                        {
+                                            imageUrl = "/images/persona/no-image.png";
+                                        }
+                                        <li>
+                                            <div class="thumbnail">
+                                                <img class="img-polaroid" alt="@enumerable[k].Image.AltText" src="@CropUp.GetUrl(imageUrl, new ImageSizeArguments { CropAlias = "thumb" })"/>
+                                                @enumerable[k].Name<br/>
+                                                <small> @enumerable[k].Title</small><br/>
+                                                <small>   <a href="mailto:@enumerable[k].Email">Email</a></small>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }   
+                    }
+                </div>
+            </div>
+
+            break;
+        case UmbracoEnum.DocumentTypeAlias.ReferenceFolder:
+            <div id="@contentItemList[j].UrlName">
+                <div class="row">
+                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                    @{
+                        IEnumerable<Reference> references = NodeRepository.GetReferenceList(contentItemList[j].Node);
+                        <ul class="thumbnails thumbnails-centered">
+                            
+                            @{
+                        var referencesList = references as IList<Reference> ?? references.ToList();
+                            }
+                            @for (int k = 0; k < referencesList.Count(); k++)
+                            {
+                                if (!string.IsNullOrEmpty(@referencesList[k].Image.PictureUrl))
+                                {
+                                    <li>
+                                        <div class="thumbnail">
+                                            <img class="img-polaroid" alt="@referencesList[k].Image.AltText" src="@referencesList[k].Image.PictureUrl"/>
+                           
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+
+            break;
+        case UmbracoEnum.DocumentTypeAlias.TestimonialFolder:
+            <div id="@contentItemList[j].UrlName">
+                <div class="row">
+                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                    @{
+                        IEnumerable<Testimonial> testimonials = NodeRepository.GetTestimonialList(contentItemList[j].Node);
+                            
+                        var testimonialsList = testimonials as IList<Testimonial> ?? testimonials.ToList();
+                    }
+                        @for (int k = 0; k < testimonialsList.Count(); k++)
+                        {
+                            <div class="testimonial">
+                                <div class="testimonialcontent">
+                                    @if (!string.IsNullOrEmpty(@testimonialsList[k].Image.PictureUrl))
+                                    {
+                                        <img class="pull-left " alt="@testimonialsList[k].Image.AltText" src="@CropUp.GetUrl(testimonialsList[k].Image.PictureUrl, new ImageSizeArguments { CropAlias = "testimonial" })"/>
+                                    }
+                                    <p>
+                                        @testimonialsList[k].Description
+                                    </p>
+                                </div>
+                                <blockquote class="hero-unify">
+                                    <p>@testimonialsList[k].TestimonialOpinion </p>
+                                    <small>@testimonialsList[k].TestimonialFrom </small>
+                                </blockquote>
+
+                            </div>
+                        }
+                 
+                </div>
+            </div>
+
+            break;
+        case UmbracoEnum.DocumentTypeAlias.ContactFormularBiltorvet:
+        <div id="@contentItemList[j].UrlName">
+            <div class="row">
+                <div class="row">
+                    <div class="span12">
+                        <!-- Contact form -->
+                        <div class="form contactform contactformBiltorvet">
+                                    <div class="page-header">
+                        <h1>@contentItemList[j].Header</h1>
+                    </div>
+                            <!-- Contact form (not working)-->
+                            <div id="biltorvetContactFormular" class="form-horizontal">
+                                <input type="hidden" id="recepientEmail" value="@contentItemList[j].RecipientEmail"/>
+                                <!-- Name -->
+                                <div class="control-group ">
+                                    <label class="control-label" for="firmName">Firmanavn</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="firmName" id="firmName">
+                                    </div>
+                                </div>
+                                <!-- Adresse -->
+                                <div class="control-group">
+                                    <label class="control-label" for="address">Adresse</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="address" id="address">
+                                    </div>
+                                </div>
+                                <!-- Postnr -->
+                                <div class="control-group">
+                                    <label class="control-label" for="zipCode">Postnr.</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="zipCode" id="zipCode">
+                                    </div>
+                                </div>
+                                <!-- By -->
+                                <div class="control-group">
+                                    <label class="control-label" for="city">By</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="city" id="city">
+                                    </div>
+                                </div>
+                                <!-- Cvr nr. -->
+                                <div class="control-group">
+                                    <label class="control-label" for="cvrnr">Cvr nr</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="cvrnr" id="cvrnr">
+                                    </div>
+                                </div>
+                                <!-- KOntaktperson -->
+                                <div class="control-group">
+                                    <label class="control-label" for="contactPerson">Kontaktperson</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="contactPerson" id="contactPerson">
+                                    </div>
+                                </div>
+                                <!-- Tlfnr. -->
+                                <div class="control-group">
+                                    <label class="control-label" for="phone">Tlf. nr.</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="phone" id="phone">
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="email" id="email">
+                                    </div>
+                                </div>
+                                <!-- Salg af nye/brugte biler -->
+                                <div class="control-group">
+                                    <label class="control-label">Salg af nye/brugte biler</label>
+                                    <div class="controls">
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="newCars" name="newCars" value="">
+                                            Nye biler
+                                        </label>
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="usedCars" name="usedCars" value="">
+                                            Brugte biler
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Ved nye biler, hvilket mærke(r) -->
+                                <div class="control-group">
+                                    <label class="control-label" for="newCars">Ved nye biler, hvilket mærke(r)</label>
+                                    <div class="controls">
+                                        <textarea class="input-madium" id="brands" name="brands" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <!-- Bilannoncer overføres fra -->
+                                <div class="control-group">
+                                    <label class="control-label" >Bilannoncer overføres fra</label>
+                                    <div class="controls">
+
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="bilinfo" name="bilinfo" value=""> Bilinfo
+                                        </label>
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="autodesktop" name="autodesktop" value=""> Autodesktop
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" >Accepter vilkår og betingelser</label>
+                                    <div class="controls">
+
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" id="termsandconditions" name="termsandconditions" value=""> Accepter
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="form-actions">
+                                    <!-- Buttons -->
+                                    <button type="submit" class="btn" id="sendContactFormularBiltorvet">Send</button>
+                                    <button type="reset" class="reset btn">Annullere</button>
+                                </div>
+                                <div class="alert alert-error display-none">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Advarsel!</strong> Udfyld venligst manglende felter (rødt).
+                                </div>
+                                <div class="clearfix alert alert-success display-none">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Meddelse!</strong>
+                                </div>
+                            </div>@*Formular end*@
+                        </div>
+
+                    </div>
+                  
+
+                </div>
+            </div>
+        </div>
+            break;
+
+        case UmbracoEnum.DocumentTypeAlias.ContactFormularBiltovetAS:
+        <div id="@contentItemList[j].UrlName">
+            <div class="row">
+                <div class="row">
+                    <div class="span6">
+                        <!-- Contact form -->
+                        <div class="form contactform contactformBiltorvetAS">
+                            <h2>Kontakt</h2>
+                            <!-- Contact form (not working)-->
+                            <div class="form-horizontal" id="biltorvetASContactFormular">
+                                <input type="hidden" id="recepientEmail" value="@contentItemList[j].RecipientEmail"/>
+
+                                <!-- Name -->
+                                <div class="control-group">
+                                    <label class="control-label" for="area">Område</label>
+                                    <div class="controls">
+                                        <select name="area" id="area">
+                                            <option>Generelt</option>
+                                            <option>Autodesktop</option>
+                                            <option>Biltorvet.dk</option>
+                                            <option>Køb af hjemmeside</option>
+                                            <option>Køb af aktier Biltorvet A/S</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Name -->
+                                <div class="control-group">
+                                    <label class="control-label" for="name">Navn</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" name="name" id="name">
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <div class="control-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" id="email" name="email">
+                                    </div>
+                                </div>
+                                <!-- Website -->
+                                <div class="control-group">
+                                    <label class="control-label" for="phone">Tlf. nr.</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-medium" id="phone">
+                                    </div>
+                                </div>
+                                <!-- Comment -->
+                                <div class="control-group">
+                                    <label class="control-label" for="comment">Besked</label>
+                                    <div class="controls">
+                                        <textarea class="input-madium" id="comment" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="form-actions">
+                                    <!-- Buttons -->
+                                    <button type="submit" class="btn" id="sendContactFormularBiltorvetAS">Send</button>
+                                    <button type="reset" class="btn">Annullere</button>
+                                </div>
+                                <div class="alert alert-error display-none">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Advarsel!</strong> Udfyld venligst manglende felter (rødt).
+                                </div>
+                                <div class="clearfix alert alert-success display-none">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Meddelse!</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="span6">
+                        <div class="contactform">
+                        
+                            <!-- Address section -->
+                            <h2>Adresse</h2>
+                            <div class="address">
+                                <h6>@contentItemList[j].FirmName</h6>
+                                <address><!-- Address --> 
+                                   <i class="icon-home"></i> @contentItemList[j].Address<br /> 
+                                     <i class="icon-barcode"></i>@contentItemList[j].ZipCode<br /> 
+                                    <!-- Phone number -->
+                                    <i class="icon-phone-sign"></i> @contentItemList[j].Phone<br/>
+                                    <i class="icon-globe"></i><a href="@contentItemList[j].WebsiteUrl"> @contentItemList[j].WebsiteName</a>
+                                </address>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            break;
+
+    }
+
+
+}
+
+
+
+
+
+

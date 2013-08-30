@@ -1,0 +1,237 @@
+2013-08-05 19:57:56,086 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-08-05 19:57:56,094 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 4ms)
+2013-08-05 19:57:56,098 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2013-08-05 19:57:56,212 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 17 (took 113ms)
+2013-08-05 19:57:56,225 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2013-08-05 19:57:56,231 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 4ms)
+2013-08-05 19:57:56,232 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2013-08-05 19:57:56,236 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 4ms)
+2013-08-05 19:57:56,237 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2013-08-05 19:57:56,241 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 3 (took 4ms)
+2013-08-05 19:57:56,246 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2013-08-05 19:57:56,252 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 5ms)
+2013-08-05 19:57:56,252 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2013-08-05 19:57:56,257 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2013-08-05 19:57:56,442 [8] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2013-08-05 19:57:56,594 [8] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2013-08-05 19:57:56,645 [8] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Eksponent.CropUp.Umbraco.UmbracoDefaults
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrlInternal(Assembly assembly, String resourceName, Boolean htmlEncoded, Boolean forSubstitution, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrl(Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Type type, String resourceName)
+   at Eksponent.CropUp.Umbraco.UmbracoDefaults..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-08-05 19:57:56,652 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-05 19:57:56,661 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 9ms)
+2013-08-05 19:57:56,695 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 19:57:56,720 [8] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 25ms)
+2013-08-05 19:57:56,876 [8] INFO  umbraco.content - [Thread 9] Loading content from disk cache...
+2013-08-05 19:57:57,225 [8] INFO  Umbraco.Core.PluginManager - [Thread 9] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2013-08-05 19:57:57,269 [8] INFO  Umbraco.Core.PluginManager - [Thread 9] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 43ms)
+2013-08-05 19:58:26,329 [8] INFO  Umbraco.Core.PluginManager - [Thread 11] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2013-08-05 19:58:26,347 [8] INFO  Umbraco.Core.PluginManager - [Thread 11] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 17 (took 17ms)
+2013-08-05 19:59:57,496 [8] INFO  umbraco.BasePages.BasePage - [Thread 5] User admin (Id: 0) logged in
+2013-08-05 19:59:57,529 [8] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.BusinessLogic.Actions.IActionHandler
+2013-08-05 19:59:57,534 [8] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 5ms)
+2013-08-05 19:59:57,590 [8] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 19:59:57,618 [8] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.ITree, found 36 (took 27ms)
+2013-08-05 20:01:56,041 [8] INFO  umbraco.BusinessLogic.Log - [Thread 33] Log scrubbed.  Removed all items older than 2013-06-06 20:01:56
+2013-08-05 20:01:56,042 [8] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 33] Application shutdown. Reason: BinDirChangeOrDirectoryRename
+2013-08-05 20:01:57,541 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Determining hash of code files on disk
+2013-08-05 20:01:57,548 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Hash determined (took 3ms)
+2013-08-05 20:01:57,554 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2013-08-05 20:01:57,649 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 17 (took 94ms)
+2013-08-05 20:01:57,660 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2013-08-05 20:01:57,665 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 4ms)
+2013-08-05 20:01:57,666 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2013-08-05 20:01:57,670 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 4ms)
+2013-08-05 20:01:57,671 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2013-08-05 20:01:57,675 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 3 (took 4ms)
+2013-08-05 20:01:57,676 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2013-08-05 20:01:57,681 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 5ms)
+2013-08-05 20:01:57,681 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2013-08-05 20:01:57,686 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2013-08-05 20:01:57,772 [12] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 15] Initializing Examine and binding to business logic events
+2013-08-05 20:01:57,874 [12] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 15] Adding examine event handlers for index providers: 3
+2013-08-05 20:01:57,879 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-05 20:01:57,888 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 8ms)
+2013-08-05 20:01:57,903 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:01:57,926 [12] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 22ms)
+2013-08-05 20:01:57,941 [12] ERROR Umbraco.Core.PluginManager - [Thread 15] Error creating type Eksponent.CropUp.Umbraco.UmbracoDefaults
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrlInternal(Assembly assembly, String resourceName, Boolean htmlEncoded, Boolean forSubstitution, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrl(Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at Eksponent.CropUp.Umbraco.UmbracoDefaults..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-08-05 20:01:58,910 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Starting resolution types of umbraco.interfaces.IPackageAction
+2013-08-05 20:01:58,920 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Completed resolution of types of umbraco.interfaces.IPackageAction, found 13 (took 10ms)
+2013-08-05 20:01:58,930 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-05 20:01:58,939 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 8ms)
+2013-08-05 20:01:58,940 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:01:58,963 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 22ms)
+2013-08-05 20:01:58,973 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Starting resolution types of umbraco.interfaces.ICacheRefresher
+2013-08-05 20:01:58,984 [12] INFO  Umbraco.Core.PluginManager - [Thread 17] Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 22 (took 10ms)
+2013-08-05 20:01:58,998 [12] INFO  umbraco.content - [Thread 33] Loading content from database...
+2013-08-05 20:01:59,185 [12] INFO  umbraco.BusinessLogic.Log - [Thread 27] Log scrubbed.  Removed all items older than 2013-06-06 20:01:59
+2013-08-05 20:01:59,186 [12] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 27] Application shutdown. Reason: ConfigurationChange
+2013-08-05 20:02:00,064 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Determining hash of code files on disk
+2013-08-05 20:02:00,071 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Hash determined (took 3ms)
+2013-08-05 20:02:00,076 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2013-08-05 20:02:00,173 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 17 (took 96ms)
+2013-08-05 20:02:00,185 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2013-08-05 20:02:00,190 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 5ms)
+2013-08-05 20:02:00,191 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2013-08-05 20:02:00,195 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 4ms)
+2013-08-05 20:02:00,196 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2013-08-05 20:02:00,200 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 3 (took 4ms)
+2013-08-05 20:02:00,201 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2013-08-05 20:02:00,206 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 4ms)
+2013-08-05 20:02:00,206 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2013-08-05 20:02:00,212 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 5ms)
+2013-08-05 20:02:00,298 [13] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 15] Initializing Examine and binding to business logic events
+2013-08-05 20:02:00,365 [13] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 15] Adding examine event handlers for index providers: 3
+2013-08-05 20:02:00,371 [13] ERROR Umbraco.Core.PluginManager - [Thread 15] Error creating type Eksponent.CropUp.Umbraco.UmbracoDefaults
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrlInternal(Assembly assembly, String resourceName, Boolean htmlEncoded, Boolean forSubstitution, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrl(Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at Eksponent.CropUp.Umbraco.UmbracoDefaults..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-08-05 20:02:00,374 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-05 20:02:00,383 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 9ms)
+2013-08-05 20:02:00,399 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:02:00,424 [13] INFO  Umbraco.Core.PluginManager - [Thread 15] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 24ms)
+2013-08-05 20:02:00,628 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:02:00,651 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.ITree, found 36 (took 22ms)
+2013-08-05 20:02:00,655 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:02:00,655 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.ITree, found 36 (took 0ms)
+2013-08-05 20:02:00,660 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.BusinessLogic.Actions.IActionHandler
+2013-08-05 20:02:00,665 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 5ms)
+2013-08-05 20:02:00,665 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.BusinessLogic.Actions.IActionHandler
+2013-08-05 20:02:00,665 [13] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 0ms)
+2013-08-05 20:04:51,622 [13] INFO  Umbraco.Core.PluginManager - [Thread 27] Starting resolution types of umbraco.interfaces.IDataType
+2013-08-05 20:04:51,643 [13] INFO  Umbraco.Core.PluginManager - [Thread 27] Completed resolution of types of umbraco.interfaces.IDataType, found 37 (took 21ms)
+2013-08-05 20:04:57,555 [13] INFO  Umbraco.Core.PluginManager - [Thread 28] Starting resolution types of umbraco.interfaces.ICacheRefresher
+2013-08-05 20:04:57,566 [13] INFO  Umbraco.Core.PluginManager - [Thread 28] Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 22 (took 10ms)
+2013-08-05 20:07:38,267 [13] INFO  Umbraco.Core.PluginManager - [Thread 11] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2013-08-05 20:07:38,273 [13] INFO  Umbraco.Core.PluginManager - [Thread 11] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 17 (took 6ms)
+2013-08-05 20:10:41,617 [13] INFO  umbraco.content - [Thread 9] Loading content from disk cache...
+2013-08-05 20:10:42,471 [13] INFO  Umbraco.Core.PluginManager - [Thread 9] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2013-08-05 20:10:42,478 [13] INFO  Umbraco.Core.PluginManager - [Thread 9] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 6ms)
+2013-08-05 20:12:56,944 [13] INFO  umbraco.content - [Thread 27] Loading content from database...
+2013-08-05 20:16:02,860 [13] INFO  umbraco.content - [Thread 9] Loading content from database...
+2013-08-05 20:22:36,403 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 17] New document 1071
+2013-08-05 20:22:40,158 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 14] Content 'Globale elementer' with Id '1071' has been published.
+2013-08-05 20:22:46,979 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 28] New document 1072
+2013-08-05 20:22:54,312 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 6] New document 1073
+2013-08-05 20:22:56,228 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 27] Content 'Testimonials mappe' with Id '1073' has been published.
+2013-08-05 20:22:58,245 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 14] Content 'Teaser mappe' with Id '1072' has been published.
+2013-08-05 20:23:16,139 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 11] New document 1074
+2013-08-05 20:23:18,497 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 19] Content 'Albert Einstein' with Id '1074' has been published.
+2013-08-05 20:23:43,827 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 17] Content 'Albert Einstein' with Id '1074' has been published.
+2013-08-05 20:24:00,573 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 28] New document 1075
+2013-08-05 20:24:03,077 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 19] Content 'Maya Angelou' with Id '1075' has been published.
+2013-08-05 20:24:16,005 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 23] Content 'Maya Angelou' with Id '1075' has been published.
+2013-08-05 20:24:56,675 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 34] New document 1076
+2013-08-05 20:25:38,625 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 21] Content 'Topteaser' with Id '1076' has been published.
+2013-08-05 20:26:36,378 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 10] New document 1077
+2013-08-05 20:26:38,983 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 27] Content 'Midtteaser' with Id '1077' has been published.
+2013-08-05 20:27:06,383 [13] INFO  umbraco.content - [Thread 27] Loading content from database...
+2013-08-05 20:27:27,355 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 19] Content 'Midtteaser' with Id '1077' has been published.
+2013-08-05 20:29:46,399 [13] INFO  umbraco.content - [Thread 6] Loading content from database...
+2013-08-05 20:30:40,454 [13] INFO  umbraco.content - [Thread 17] Loading content from database...
+2013-08-05 20:32:31,295 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 17] New document 1080
+2013-08-05 20:32:33,313 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 22] Content 'Forside karrousel mappe' with Id '1080' has been published.
+2013-08-05 20:33:20,759 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 22] New document 1081
+2013-08-05 20:33:23,157 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 27] Content 'Klokke tandhjul' with Id '1081' has been published.
+2013-08-05 20:33:39,670 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 34] New document 1082
+2013-08-05 20:33:41,431 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 9] Content 'Skråtrender' with Id '1082' has been published.
+2013-08-05 20:33:55,941 [13] INFO  umbraco.cms.businesslogic.web.Document - [Thread 34] New document 1083
+2013-08-05 20:33:58,010 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 11] Content 'Blik og hammer' with Id '1083' has been published.
+2013-08-05 20:37:52,850 [13] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 9] Content 'Forside' with Id '1050' has been published.
+2013-08-05 20:43:29,658 [13] INFO  umbraco.BusinessLogic.Log - [Thread 22] Log scrubbed.  Removed all items older than 2013-06-06 20:43:29
+2013-08-05 20:43:29,660 [13] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 22] Application shutdown. Reason: BinDirChangeOrDirectoryRename
+2013-08-05 20:43:34,491 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Determining hash of code files on disk
+2013-08-05 20:43:34,498 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Hash determined (took 3ms)
+2013-08-05 20:43:34,504 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2013-08-05 20:43:34,600 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 17 (took 95ms)
+2013-08-05 20:43:34,615 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2013-08-05 20:43:34,619 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 4ms)
+2013-08-05 20:43:34,620 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2013-08-05 20:43:34,624 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 4ms)
+2013-08-05 20:43:34,624 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2013-08-05 20:43:34,629 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 3 (took 4ms)
+2013-08-05 20:43:34,630 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2013-08-05 20:43:34,635 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 4ms)
+2013-08-05 20:43:34,635 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2013-08-05 20:43:34,640 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 4ms)
+2013-08-05 20:43:34,723 [32] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 16] Initializing Examine and binding to business logic events
+2013-08-05 20:43:34,797 [32] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 16] Adding examine event handlers for index providers: 3
+2013-08-05 20:43:34,801 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-05 20:43:34,809 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 8ms)
+2013-08-05 20:43:34,845 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:43:34,868 [32] INFO  Umbraco.Core.PluginManager - [Thread 16] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 23ms)
+2013-08-05 20:43:34,881 [32] ERROR Umbraco.Core.PluginManager - [Thread 16] Error creating type Eksponent.CropUp.Umbraco.UmbracoDefaults
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrlInternal(Assembly assembly, String resourceName, Boolean htmlEncoded, Boolean forSubstitution, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrl(Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Type type, String resourceName)
+   at Eksponent.CropUp.Umbraco.UmbracoDefaults..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-08-05 20:43:34,984 [32] INFO  umbraco.content - [Thread 5] Loading content from disk cache...
+2013-08-05 20:43:36,621 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2013-08-05 20:43:36,627 [32] INFO  Umbraco.Core.PluginManager - [Thread 5] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 5ms)
+2013-08-05 20:43:37,380 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Starting resolution types of umbraco.interfaces.ITree
+2013-08-05 20:43:37,405 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Completed resolution of types of umbraco.interfaces.ITree, found 36 (took 25ms)
+2013-08-05 20:43:55,298 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Starting resolution types of umbraco.interfaces.ICacheRefresher
+2013-08-05 20:43:55,328 [32] INFO  Umbraco.Core.PluginManager - [Thread 31] Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 22 (took 29ms)
+2013-08-05 20:44:04,689 [32] INFO  Umbraco.Core.PluginManager - [Thread 22] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2013-08-05 20:44:04,695 [32] INFO  Umbraco.Core.PluginManager - [Thread 22] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 17 (took 6ms)
+2013-08-05 20:51:44,704 [32] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.BusinessLogic.Actions.IActionHandler
+2013-08-05 20:51:44,710 [32] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 5ms)
+2013-08-05 20:52:04,639 [32] INFO  umbraco.content - [Thread 10] Loading content from database...
+2013-08-05 20:52:33,493 [32] INFO  Umbraco.Core.PluginManager - [Thread 21] Starting resolution types of umbraco.interfaces.IDataType
+2013-08-05 20:52:33,515 [32] INFO  Umbraco.Core.PluginManager - [Thread 21] Completed resolution of types of umbraco.interfaces.IDataType, found 37 (took 21ms)
+2013-08-05 20:52:43,653 [32] INFO  umbraco.cms.businesslogic.web.Document - [Thread 34] New document 1086
+2013-08-05 20:52:46,108 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 21] Content 'Kategori mappe' with Id '1086' has been published.
+2013-08-05 20:53:06,613 [32] INFO  umbraco.cms.businesslogic.web.Document - [Thread 6] New document 1087
+2013-08-05 20:53:08,656 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 27] Content 'Alle' with Id '1087' has been published.
+2013-08-05 20:53:24,671 [32] INFO  umbraco.cms.businesslogic.web.Document - [Thread 31] New document 1088
+2013-08-05 20:53:26,679 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 23] Content 'Inddækning af tage' with Id '1088' has been published.
+2013-08-05 20:53:32,701 [32] INFO  umbraco.cms.businesslogic.web.Document - [Thread 31] New document 1089
+2013-08-05 20:53:34,935 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 14] Content 'Kviste' with Id '1089' has been published.
+2013-08-05 20:53:42,336 [32] INFO  umbraco.cms.businesslogic.web.Document - [Thread 34] New document 1090
+2013-08-05 20:53:44,160 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 27] Content 'Facader' with Id '1090' has been published.
+2013-08-05 20:54:06,866 [32] INFO  umbraco.content - [Thread 5] Loading content from database...
+2013-08-05 20:56:55,270 [32] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 21] Content 'Blik og facade' with Id '1058' has been published.

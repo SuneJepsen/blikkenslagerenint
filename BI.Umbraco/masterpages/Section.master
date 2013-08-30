@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Section.master.cs" Inherits="BI.Umbraco.masterpages.Section" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+           <header class="jumbotron subhead" id="overview">
+        <div class="container">
+            <h1><%:StandardValueItem.HeroTitle %></h1>
+            <p class="lead"><%:StandardValueItem.HeroDescription %></p>
+        </div>
+    </header>
+    </section>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <div id="main-section" class="container">
+        <umbraco:Macro ID="Macro1" runat="server" FileLocation="~/macroscripts/tiles/NewsList.cshtml" />
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+
+</asp:Content>

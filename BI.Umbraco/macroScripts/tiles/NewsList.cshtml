@@ -1,0 +1,58 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+
+    List<NewsItem> news = NodeRepository.GetNewslists();
+
+
+}
+
+    @for (int index = 0; index < news.Count; index++)
+    {
+        NewsItem t = news[index];
+        
+        <div class="row" >
+            <div class="sixcol  @(index % 2 == 0 ? "" : "right" )">
+               @CreateImage(t)
+            </div>
+            <div class="sixcol last">
+                <h3>@t.Header</h3>
+                <i class="icon-calendar"></i> @t.CreatedDate.ToString("dddd, dd MMMM yyyy")
+                @t.Description
+                @if(t.OwnSinglePage)
+                {
+                    <a class="btn" href="@t.Link">Læs mere &raquo;</a>
+                }
+            </div>
+        </div>
+
+    }
+
+
+
+@helper CreateImage(NewsItem newsItem)
+{
+        
+    var picUrl = newsItem.PictureUrl;
+    if (string.IsNullOrWhiteSpace(picUrl) || string.IsNullOrEmpty(picUrl))
+    {
+        newsItem.PictureUrl = "/images/icons/biltorvetLogo2.png";
+    }
+
+    <img alt="@newsItem.Image.AltText" class="section-image"   src="@newsItem.PictureUrl"  />
+   
+}
+
+
+
+
+
+
+
+
+
+
+

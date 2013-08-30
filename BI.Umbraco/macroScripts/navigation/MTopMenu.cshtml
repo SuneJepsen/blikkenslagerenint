@@ -1,0 +1,37 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using umbraco.NodeFactory;
+@using BI.Repository.Entities;
+@using umbraco.interfaces;
+
+
+
+@{
+    List<NavigationItem> items = NodeRepository.GetTopMenuMobile();
+    HttpRequest request = HttpContext.Current.Request;
+    string rooturl = request.Url.AbsoluteUri.Replace(request.Url.AbsolutePath, String.Empty) + "?M=1";
+    FrontpageItem frontpageItem = new FrontpageItem(NodeRepository.GetWebsiteFrontpageMobile());
+    string theme = "";
+    if (frontpageItem != null && !string.IsNullOrEmpty(frontpageItem.Theme))
+    {
+        theme =  frontpageItem.Theme;
+    }
+    
+}
+
+    <ul data-role="listview" >
+        <li data-role="list-divider" class="@theme">
+            <h3>Menu</h3>
+        </li>
+        @foreach (NavigationItem item in items)
+        {
+            <li data-theme="c">
+            <a href="@item.Url" data-transition="slide">
+                <span class="list-text">@item.NavText</span>
+            </a>
+        </li>
+        }
+            <li data-theme="c">
+             <a href="@rooturl" data-ajax="false"><span class="list-text">Gå tilbage hovedside</span></a>
+       
+    </ul>

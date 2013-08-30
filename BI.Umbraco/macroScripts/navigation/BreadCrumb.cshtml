@@ -1,0 +1,31 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository.Entities;
+@using BI.Repository;
+
+@{
+    var items = NodeRepository.GetBreadcrumb();
+}
+
+@if (items.Any() && items.Count > 1)
+{
+    <ul class="breadcrumb pull-right">
+               @for (int i = 0; i < items.Count; i++)
+               {
+                   var navigationItem = items[i];
+                   if (i == items.Count-1)
+                   {
+                        <li><a href="@navigationItem.Url">@navigationItem.NavText</a></li>
+
+                   }
+                   else
+                   {
+                        <li><a href="@navigationItem.Link">@navigationItem.NavText</a> <span class="divider">/</span></li>
+
+                   }
+               }
+    </ul>
+
+
+}
+
+

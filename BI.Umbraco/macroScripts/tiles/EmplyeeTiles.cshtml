@@ -1,0 +1,122 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<DepartmentItem> departments = NodeRepository.GetDepartments(@Model.department);
+
+    List<EmployeeFolder> employeeFolder = NodeRepository.GetEmployeeFolder(@Model.employeesList);
+    string customClasses = " ";
+
+}
+<h1>
+   <a href="javascript:window.history.back();" class="specialFont">&lt;Tilbage</a>
+ 
+</h1>
+
+<div class='clearfix'>
+
+    @for (int j = 0; j < departments.Count; j++)
+    {
+        <div class="tile clearfix">
+
+            <div class="left">
+                <div class="tileContent tileHeader">
+                    <h1>@departments[j].Department</h1>
+                </div>
+
+                @if (departments[j].DepartmentImage != "")
+                {
+                    <div class="tileBackground  ">
+                        <img alt="@departments[j].Image.AltText" src="@CropUp.GetUrl(departments[j].DepartmentImage, new ImageSizeArguments { CropAlias = "contactbackground" })"  />
+                    </div>
+                }
+                <div class="tileContent tileAddress">
+                    @Html.Raw(departments[j].Address)
+                </div>
+                <div class="tileContent tileOther">
+                    @Html.Raw(departments[j].Other)
+                </div>
+                @if (departments[j].Employee != null && departments[j].Employee.Image != null && !string.IsNullOrEmpty(departments[j].Employee.Image.PictureUrl))
+                {
+                    <div class="tileImage tileContent">
+                        <img src="@CropUp.GetUrl(departments[j].Employee.Image.PictureUrl, new ImageSizeArguments { CropAlias = "personalarge" })"  />
+                    </div>
+                }
+            </div>
+            <div class="right">
+                <div class="openHours">
+                    @Html.Raw(departments[j].OpeningHours)
+                </div>
+ 
+                <div class="employeeSectionLink">
+                    <a target="_blank" href="http://maps.google.com/maps?f=d&source=s_d&saddr=&daddr=@departments[j].GeoCoords">Find vej her</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="hr"></div>   
+            
+    }
+</div>
+
+@for (int j = 0; j < employeeFolder.Count; j++)
+{
+    <div class="employeeTileContainer clearfix">
+        <h1>@employeeFolder[j].Name</h1>
+        @for (int i = 0; i < employeeFolder[j].Employees.Count; i++)
+        {
+            customClasses = " ";
+            if (i != 0 && (i + 1) % 5 == 0)
+            {
+                customClasses = "last";
+            }
+
+
+
+            <div class="employeeTile @customClasses">
+                @if (employeeFolder[j].Employees[i].PictureUrl != "")
+                {
+                    <div class="tileImage">
+                        <img height="248" alt="@employeeFolder[j].Employees[i].Image.AltText" src="@CropUp.GetUrl(employeeFolder[j].Employees[i].PictureUrl, new ImageSizeArguments { CropAlias = "personaxl" })"  />
+                    </div>
+
+                }
+                <div class="employeeData">
+                    @if (!string.IsNullOrEmpty(@employeeFolder[j].Employees[i].Name))
+                    { <div><b>@employeeFolder[j].Employees[i].Name</b></div>  }
+                    @if (!string.IsNullOrEmpty(@employeeFolder[j].Employees[i].Title))
+                    { <div>@employeeFolder[j].Employees[i].Title</div>  }
+                    @if (!string.IsNullOrEmpty(@employeeFolder[j].Employees[i].Phone))
+                    { <div>@employeeFolder[j].Employees[i].Phone</div>   }
+                    @if (!string.IsNullOrEmpty(@employeeFolder[j].Employees[i].Email))
+                    { <div class="email"><a href="mailto:@employeeFolder[j].Employees[i].Email" >@employeeFolder[j].Employees[i].Email</a></div>      }
+                </div>
+            </div>
+                   
+     
+        }
+    </div>
+}
+
+
+
+
+
+@helper CreateLink(Link link, string linkText)
+{
+    if (link != null)
+    {
+        if (!string.IsNullOrEmpty(link.Url))
+        {
+    <h2><a class="tileLink " target='@(link.NewWindow ? "_blank" : "")'  href="@link.Url" >@linkText</a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@link.Url" >@linkText</a></h2>
+        }
+    }  
+        
+}

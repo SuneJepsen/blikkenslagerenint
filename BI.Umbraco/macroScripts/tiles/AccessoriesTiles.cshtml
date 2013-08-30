@@ -1,0 +1,116 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<StandardValueItem> newsList = NodeRepository.GetNewslists();
+    string customClasses = "groupLeft ";
+
+
+
+
+
+}
+<h1>
+   <a href="javascript:window.history.back();" class="specialFont">&lt;Tilbage</a>
+ 
+</h1>
+
+            <div class='clearfix accessoriesListContainer'>
+
+    @for (int j = 0; j < newsList.Count; j++)
+    {
+
+
+            <div class="newsItem clearfix">
+                @CreateHeader(newsList[j])                         
+                <div class="hr"></div>   
+
+                <div class="tile">
+                    @CreateImage(newsList[j])                         
+                    <div class="description">
+                        @Html.Raw(newsList[j].Description)                                  
+                    </div>
+                    <div class="price">
+                        @newsList[j].Optional1
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="readMoreLink">
+                        @CreateLink(newsList[j])                         
+                    </div>
+                </div>
+            </div>
+
+    }  
+
+         </div>
+
+
+
+@helper CreateLink(StandardValueItem newsItem)
+{
+    if (newsItem != null && !string.IsNullOrEmpty(newsItem.Header))
+    {
+        if (newsItem.Link != null && !string.IsNullOrEmpty(newsItem.Link.Url))
+        {
+    <h2><a class="tileLink " target='@(newsItem.Link.NewWindow ? "_blank" : "")'  href="@newsItem.Link.Url" ><img src="/images/icons/dot.jpg" /><span>Læs mere</span></a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@newsItem.Url" ><img src="/images/icons/dot.jpg" /><span>Læs mere</span></a></h2>
+        }
+    }  
+        
+}
+
+@helper CreateImage(StandardValueItem newsItem)
+{
+        
+    var picUrl = newsItem.PageImage.PictureUrl;
+    if (string.IsNullOrWhiteSpace(picUrl))
+    {
+        picUrl = "/images/no-picture.jpg";
+    }
+
+    if (newsItem.Link != null && !string.IsNullOrEmpty(newsItem.Link.Url))
+    {
+    <a class="tileLink" target='@(newsItem.Link.NewWindow ? "_blank" : "")'  href="@newsItem.Link.Url" >
+        <img class="tileImage" alt="@newsItem.PageImage.AltText" src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+    </a>        
+    }
+    else
+    {
+    <a class="tileLink"   href="@newsItem.Url" >
+        <img alt="@newsItem.PageImage.AltText" class="tileImage"   src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+    </a>
+    }
+   
+}
+@helper CreateHeader(StandardValueItem newsItem)
+{
+    
+    if (newsItem != null && !string.IsNullOrEmpty(newsItem.Header))
+    {
+        if (newsItem.Link != null && !string.IsNullOrEmpty(newsItem.Link.Url))
+        {
+            <h1><a class="tileLink " target='@(newsItem.Link.NewWindow ? "_blank" : "")'  href="@newsItem.Link.Url" >@newsItem.Header</a></h1>
+
+        }
+        else
+        {
+            <h1 class="clearfix"><a class="tileLink "  href="@newsItem.Url" >@newsItem.Header</a></h1>
+        }
+    }
+
+}
+ 
+
+
+
+
+ 
+
+
+

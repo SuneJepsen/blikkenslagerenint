@@ -1,0 +1,83 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<DepartmentItem> departments = NodeRepository.GetDepartments(@Model.departments);
+    string customClasses = "groupLeft ";
+
+}
+<h1 class="specialFont">Filial oversigt</h1>
+<div class='clearfix departments'>
+
+    @for (int j = 0; j < departments.Count; j++)
+    {
+        <div class="tile clearfix">
+
+            <div class="left">
+                <div class="tileContent tileHeader">
+                    <h1>@departments[j].Department</h1>
+                </div> 
+   
+                @if (departments[j].DepartmentImage != "")
+                {
+                    <div class="tileBackground  ">
+                        <img alt="@departments[j].Image.AltText" src="@CropUp.GetUrl(departments[j].DepartmentImage, new ImageSizeArguments { CropAlias = "contactbackground" })"  />
+                    </div>
+                }
+                <div class="tileContent tileAddress">
+                    @Html.Raw(departments[j].Address)
+                </div>
+                <div class="tileContent tileOther">
+                    @Html.Raw(departments[j].Other)
+                </div>
+                     @if (departments[j].Employee != null && departments[j].Employee.Image != null && !string.IsNullOrEmpty(departments[j].Employee.Image.PictureUrl))
+                {
+                    <div class="tileImage tileContent">
+                        <img src="@CropUp.GetUrl(departments[j].Employee.Image.PictureUrl, new ImageSizeArguments { CropAlias = "personalarge" })"  />
+                    </div>
+                }
+            </div>
+            <div class="right">
+                <div class="openHours">
+                    @Html.Raw(departments[j].OpeningHours)
+                </div>
+                <div class="googleMapDirection">
+                    @CreateLink(departments[j].Link, "Find medarbejder her")
+                </div>
+                <div class="employeeSectionLink">
+                    <a target="_blank" href="http://maps.google.com/maps?f=d&source=s_d&saddr=&daddr=@departments[j].GeoCoords">Find vej her</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="hr"></div>   
+            
+            }
+</div>
+
+
+
+@helper CreateLink(Link link, string linkText)
+{
+    if (link != null)
+    {
+        if (!string.IsNullOrEmpty(link.Url))
+        {
+    <h2><a class="tileLink " target='@(link.NewWindow ? "_blank" : "")'  href="@link.Url" >@linkText</a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@link.Url" >@linkText</a></h2>
+        }
+    }  
+        
+}
+
+
+
+
+
+

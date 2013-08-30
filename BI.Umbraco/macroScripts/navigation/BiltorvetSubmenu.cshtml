@@ -1,0 +1,25 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using BI.Repository.Entities;
+
+
+@{
+    List<NavigationItem> items = NodeRepository.GetBiltorvetSubmenu();
+
+}
+                              <h4>Andre biltorvet nyheder</h4>
+
+                <ul class="nav nav-tabs nav-stacked">
+                    @for (int i = 0; i < items.Count; i++)
+                    {
+                        NavigationItem item = items[i];
+
+                        <li class="@(item.Class)">
+                            <a href="@item.Url">@item.NavText</a>
+
+                        </li>
+                
+
+                    }
+                </ul>
+

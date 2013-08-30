@@ -1,0 +1,112 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+
+    List<TileItem> tileItems = NodeRepository.GetLatestAccessoriesItems(1);
+
+
+}
+
+<h1 class="specialFont">Nyeste tilbud</h1>
+
+<div class="tileleftContainer accessoriesTeaserContainer">
+
+
+    @foreach (TileItem t in tileItems)
+    {
+        <div class="tileLeft clearfix">
+            @CreateImage(t)
+            <div class="description">
+                @Html.Raw(t.Description)
+            </div>
+            <div>
+                @CreateLink(t)
+            </div>
+        </div>
+    }
+        <div class="readMoreLink">
+        <a href="/tilbehoer.aspx"><img src="/images/icons/dot.jpg" /><span>Se alle tilbud</span> </a>
+    </div>
+
+</div>
+
+
+@helper CreateLink(TileItem TileItem)
+{
+    if (TileItem != null && !string.IsNullOrEmpty(TileItem.Header))
+    {
+        if (TileItem.Link != null && !string.IsNullOrEmpty(TileItem.Link.Url))
+        {
+    <h2><a class="tileLink " target='@(TileItem.Link.NewWindow ? "_blank" : "")'  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+        }
+    }  
+        
+}
+
+@helper CreateImage(TileItem TileItem)
+{
+        
+    var picUrl = TileItem.PictureUrl;
+    if (string.IsNullOrWhiteSpace(picUrl))
+    {
+        picUrl = "/images/no-picture.jpg";
+    }
+    <img class="tileImage" alt="@TileItem.Image.AltText" src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilelarge" })"  />
+
+    @*if (TileItem.Link != null && !string.IsNullOrEmpty(TileItem.Link.Url))
+    {
+        <a class="tileLink" target='@(TileItem.Link.NewWindow ? "_blank" : "")'  href="@TileItem.Link.Url" >
+            <img class="tileImage" src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilelarge" })"  />
+
+        </a>        
+    }
+    else
+    {
+        <a class="tileLink "   href="@TileItem.Url" >
+            <img class="tileImage" src="@CropUp.GetUrl(picUrl, new ImageSizeArguments { CropAlias = "tilelarge" })"  />
+        </a>
+    }*@
+   
+}
+@helper CreateHeader(TileItem TileItem)
+{
+    
+   @* if (TileItem != null && !string.IsNullOrEmpty(TileItem.Header))
+    {
+        if (TileItem.Link != null && !string.IsNullOrEmpty(TileItem.Link.Url))
+        {
+    <h2><a class="tileLink " target='@(TileItem.Link.NewWindow ? "_blank" : "")'  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+        }
+    }
+    
+    
+    
+        *@
+
+    <h2>@TileItem.Header</h2>
+
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\UmbracoCms.6.1.3\build\net45\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.6.1.3\build\net45\UmbracoCms.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7C9F666-9781-4F4E-BFA6-375A4C72ABFB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BI.Umbraco</RootNamespace>
+    <AssemblyName>BI.Umbraco</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="businesslogic">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\businesslogic.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core">
+      <HintPath>..\packages\ClientDependency.1.7.0.4\lib\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc">
+      <HintPath>..\packages\ClientDependency-Mvc.1.7.0.4\lib\ClientDependency.Core.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="cms">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\cms.dll</HintPath>
+    </Reference>
+    <Reference Include="controls">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\controls.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2">
+      <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Eksponent.CropUp">
+      <HintPath>..\..\BiltorvetAS2013\Trunk\lib\Eksponent.CropUp.dll</HintPath>
+    </Reference>
+    <Reference Include="Eksponent.CropUp.UmbracoIV">
+      <HintPath>..\..\BiltorvetAS2013\Trunk\lib\Eksponent.CropUp.UmbracoIV.dll</HintPath>
+    </Reference>
+    <Reference Include="Examine">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Examine.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="interfaces">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.1\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.6.5\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.uGoLive">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.uGoLive.47x">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.47x.dll</HintPath>
+    </Reference>
+    <Reference Include="Our.Umbraco.uGoLive.Checks">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Our.Umbraco.uGoLive.Checks.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLCE4Umbraco">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\SQLCE4Umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TidyNet">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\TidyNet.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.Controls">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.Core">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.DataTypes">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.Installer">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.Installer.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.Legacy">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.Legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.MacroEngines">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.MacroEngines.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.Mapping">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.NotFoundHandlers">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.NotFoundHandlers.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.UI">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="uComponents.XsltExtensions">
+      <HintPath>..\..\umbLaumark\Trunk\lib\uComponents.XsltExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Core">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Umbraco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.DataLayer">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.DataLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.editorControls">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.editorControls.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.MacroEngines">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.MacroEngines.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.macroRenderings">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.macroRenderings.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.providers">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web.UI">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\Umbraco.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.XmlSerializers">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\umbraco.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="UmbracoExamine">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\UmbracoExamine.dll</HintPath>
+    </Reference>
+    <Reference Include="UrlRewritingNet.UrlRewriter">
+      <HintPath>..\packages\UmbracoCms.Core.6.1.3\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="bin\amd64\sqlceca40.dll" />
+    <Content Include="bin\amd64\sqlcecompact40.dll" />
+    <Content Include="bin\amd64\sqlceer40EN.dll" />
+    <Content Include="bin\amd64\sqlceme40.dll" />
+    <Content Include="bin\amd64\sqlceqp40.dll" />
+    <Content Include="bin\amd64\sqlcese40.dll" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="bin\x86\sqlceca40.dll" />
+    <Content Include="bin\x86\sqlcecompact40.dll" />
+    <Content Include="bin\x86\sqlceer40EN.dll" />
+    <Content Include="bin\x86\sqlceme40.dll" />
+    <Content Include="bin\x86\sqlceqp40.dll" />
+    <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="css\fancybox.css" />
+    <Content Include="css\Copy of lemmon-slider.css" />
+    <Content Include="css\Copy of lemmon-slider.min.css">
+      <DependentUpon>gallery-folio-masonry.less</DependentUpon>
+    </Content>
+    <Content Include="css\entypo.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\gallery-folio-masonry.css">
+      <DependentUpon>gallery-folio-masonry.less</DependentUpon>
+    </Content>
+    <Content Include="css\gallery-folio-masonry.min.css">
+      <DependentUpon>gallery-folio-masonry.less</DependentUpon>
+    </Content>
+    <Content Include="css\jquery.fancybox.css">
+      <DependentUpon>jquery.fancybox.less</DependentUpon>
+    </Content>
+    <Content Include="css\jquery.fancybox.min.css">
+      <DependentUpon>jquery.fancybox.less</DependentUpon>
+    </Content>
+    <Content Include="css\lemmon-slider.css" />
+    <Content Include="css\default.css" />
+    <Content Include="css\font-awesome-ie7.css" />
+    <Content Include="css\font-awesome-ie7.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\lemmon-slider.min.css">
+      <DependentUpon>lemmon-slider.less</DependentUpon>
+    </Content>
+    <Content Include="css\Portfolio.css">
+      <DependentUpon>Portfolio.less</DependentUpon>
+    </Content>
+    <Content Include="css\Portfolio.min.css">
+      <DependentUpon>Portfolio.less</DependentUpon>
+    </Content>
+    <Content Include="css\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="css\site.min.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="font\entypo.svg" />
+    <Content Include="font\fontawesome-webfont.svg" />
+    <Content Include="css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="images\3p.png" />
+    <Content Include="images\5p.png" />
+    <Content Include="images\80p.png" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\fancy-new-sprite.png" />
+    <Content Include="images\fancybox_buttons.png" />
+    <Content Include="images\fancybox_loading%402x.gif" />
+    <Content Include="images\fancybox_loading.gif" />
+    <Content Include="images\fancybox_overlay.png" />
+    <Content Include="images\fancybox_sprite%402x.png" />
+    <Content Include="images\fancybox_sprite.png" />
+    <Content Include="images\Frontpage.jpg" />
+    <Content Include="images\glyphicons-halflings-white.png" />
+    <Content Include="images\glyphicons-halflings.png" />
+    <Content Include="css\dummy.txt" />
+    <Content Include="default.aspx" />
+    <Content Include="images\hr.png" />
+    <Content Include="images\icons\mapmarker.png" />
+    <Content Include="images\lemmon-slider\1.jpg" />
+    <Content Include="images\lemmon-slider\10.jpg" />
+    <Content Include="images\lemmon-slider\1001.jpg" />
+    <Content Include="images\lemmon-slider\1011.jpg" />
+    <Content Include="images\lemmon-slider\1021.jpg" />
+    <Content Include="images\lemmon-slider\1031.jpg" />
+    <Content Include="images\lemmon-slider\1041.jpg" />
+    <Content Include="images\lemmon-slider\1051.jpg" />
+    <Content Include="images\lemmon-slider\1091.jpg" />
+    <Content Include="images\lemmon-slider\11.jpg" />
+    <Content Include="images\lemmon-slider\1101.jpg" />
+    <Content Include="images\lemmon-slider\1111.jpg" />
+    <Content Include="images\lemmon-slider\1121.jpg" />
+    <Content Include="images\lemmon-slider\1131.jpg" />
+    <Content Include="images\lemmon-slider\1141.jpg" />
+    <Content Include="images\lemmon-slider\1151.jpg" />
+    <Content Include="images\lemmon-slider\1161.jpg" />
+    <Content Include="images\lemmon-slider\1181.jpg" />
+    <Content Include="images\lemmon-slider\12.jpg" />
+    <Content Include="images\lemmon-slider\13.jpg" />
+    <Content Include="images\lemmon-slider\17.jpg" />
+    <Content Include="images\lemmon-slider\14.jpg" />
+    <Content Include="images\lemmon-slider\16.jpg" />
+    <Content Include="images\lemmon-slider\15.jpg" />
+    <Content Include="images\lemmon-slider\2.jpg" />
+    <Content Include="images\lemmon-slider\3.jpg" />
+    <Content Include="images\lemmon-slider\4.jpg" />
+    <Content Include="images\lemmon-slider\5.jpg" />
+    <Content Include="images\lemmon-slider\6.jpg" />
+    <Content Include="images\lemmon-slider\7.jpg" />
+    <Content Include="images\lemmon-slider\8.jpg" />
+    <Content Include="images\lemmon-slider\18.jpg" />
+    <Content Include="images\lemmon-slider\9.jpg" />
+    <Content Include="images\lemmon-slider\91.jpg" />
+    <Content Include="images\lemmon-slider\911.jpg" />
+    <Content Include="images\lemmon-slider\921.jpg" />
+    <Content Include="images\lemmon-slider\931.jpg" />
+    <Content Include="images\lemmon-slider\941.jpg" />
+    <Content Include="images\lemmon-slider\951.jpg" />
+    <Content Include="images\lemmon-slider\971.jpg" />
+    <Content Include="images\lemmon-slider\981.jpg" />
+    <Content Include="images\lemmon-slider\991.jpg" />
+    <Content Include="images\open-quote.png" />
+    <Content Include="images\plus.png" />
+    <Content Include="images\portfolio\t-ann-marie-comp.png" />
+    <Content Include="images\portfolio\t-bogart-yogurt.png" />
+    <Content Include="images\portfolio\t-ffmore.jpg" />
+    <Content Include="images\portfolio\t-fontlove.jpg" />
+    <Content Include="images\portfolio\t-maler.png" />
+    <Content Include="images\portfolio\t-mona-lisa.png" />
+    <Content Include="images\portfolio\t-mucha.png" />
+    <Content Include="images\portfolio\t-responsive-showcase.png" />
+    <Content Include="images\portfolio\t-screen-shot.png" />
+    <Content Include="images\portfolio\t-smartgirls.jpg" />
+    <Content Include="images\portfolio\t-tgs.png" />
+    <Content Include="images\portfolio\t-thinkmore.jpg" />
+    <Content Include="images\portfolio\t-typography.jpg" />
+    <Content Include="images\portfolio\t-wishrain %281%29.jpg" />
+    <Content Include="images\portfolio\t-wishrain.jpg" />
+    <Content Include="images\sliderarrows.png" />
+    <Content Include="images\trans.gif" />
+    <Content Include="images\trigger_right.png" />
+    <Content Include="images\videoicon.png" />
+    <Content Include="images\zoom-corner.png" />
+    <Content Include="macroScripts\dummy.txt" />
+    <Content Include="media\dummy.txt" />
+    <Content Include="css\site.less" />
+    <Content Include="css\lemmon-slider.less" />
+    <Content Include="masterpages\Portfolio.master" />
+    <Content Include="css\gallery-folio-masonry.less" />
+    <Content Include="masterpages\Portfoliopage.master" />
+    <Content Include="css\Portfolio.less" />
+    <Content Include="css\jquery.fancybox.less" />
+    <Content Include="masterpages\Contactpage.master" />
+    <Content Include="macroScripts\gallery\FrontpageTestimonials.cshtml" />
+    <Content Include="macroScripts\teasers\FrontpageBottomTeaser.cshtml" />
+    <Content Include="macroScripts\gallery\PortfolioList.cshtml" />
+    <Content Include="macroScripts\gallery\Portfoliopage.cshtml" />
+    <Content Include="config\Eksponent.CropUp.config" />
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\fancybox.js" />
+    <Content Include="scripts\isotope_custom.min.js" />
+    <Content Include="scripts\jquery.easytabs.min.js" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\jquery.flexslider-min.js" />
+    <Content Include="scripts\jquery.flexslider.js" />
+    <Content Include="scripts\openlayers\OpenLayers.js" />
+    <Content Include="scripts\openlayers\theme\default\google.css" />
+    <Content Include="scripts\openlayers\theme\default\ie6-style.css" />
+    <Content Include="scripts\openlayers\theme\default\img\add_point_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\add_point_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\blank.gif" />
+    <Content Include="scripts\openlayers\theme\default\img\close.gif" />
+    <Content Include="scripts\openlayers\theme\default\img\drag-rectangle-off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\drag-rectangle-on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_line_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_line_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_point_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_point_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_polygon_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\draw_polygon_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\editing_tool_bar.png" />
+    <Content Include="scripts\openlayers\theme\default\img\move_feature_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\move_feature_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\navigation_history.png" />
+    <Content Include="scripts\openlayers\theme\default\img\overview_replacement.gif" />
+    <Content Include="scripts\openlayers\theme\default\img\pan-panel-NOALPHA.png" />
+    <Content Include="scripts\openlayers\theme\default\img\pan-panel.png" />
+    <Content Include="scripts\openlayers\theme\default\img\panning-hand-off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\panning-hand-on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\pan_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\pan_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\remove_point_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\remove_point_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\ruler.png" />
+    <Content Include="scripts\openlayers\theme\default\img\save_features_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\save_features_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\view_next_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\view_next_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\view_previous_off.png" />
+    <Content Include="scripts\openlayers\theme\default\img\view_previous_on.png" />
+    <Content Include="scripts\openlayers\theme\default\img\zoom-panel-NOALPHA.png" />
+    <Content Include="scripts\openlayers\theme\default\img\zoom-panel.png" />
+    <Content Include="scripts\openlayers\theme\default\style.css" />
+    <Content Include="scripts\openlayers\theme\default\style.mobile.css" />
+    <Content Include="scripts\ui.js" />
+    <Content Include="scripts\lemmon-slider.js" />
+    <Content Include="scripts\dummy.txt" />
+    <Content Include="font\fontawesome-webfont.woff" />
+    <Content Include="font\fontawesome-webfont.ttf" />
+    <Content Include="font\fontawesome-webfont.eot" />
+    <Content Include="font\FontAwesome.otf" />
+    <Content Include="font\entypo.eot" />
+    <Content Include="font\entypo.ttf" />
+    <Content Include="font\entypo.woff" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="usercontrols\dummy.txt" />
+    <Content Include="usercontrols\OpenLayers.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xslt\dummy.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controllers\ContactApiController.cs" />
+    <Compile Include="helpers\Browser.cs" />
+    <Compile Include="helpers\CodeExpressionBuilder.cs" />
+    <Compile Include="helpers\EmailStatus.cs" />
+    <Compile Include="helpers\NodeHelper.cs" />
+    <Compile Include="helpers\RepsonseHelper.cs" />
+    <Compile Include="masterpages\Contactpage.master.cs">
+      <DependentUpon>Contactpage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Contactpage.master.designer.cs">
+      <DependentUpon>Contactpage.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Portfoliopage.master.cs">
+      <DependentUpon>Portfoliopage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Portfoliopage.master.designer.cs">
+      <DependentUpon>Portfoliopage.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Portfolio.master.cs">
+      <DependentUpon>Portfolio.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Portfolio.master.designer.cs">
+      <DependentUpon>Portfolio.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Frontpage.master.cs">
+      <DependentUpon>Frontpage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Frontpage.master.designer.cs">
+      <DependentUpon>Frontpage.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Master.master.cs">
+      <DependentUpon>Master.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Master.master.designer.cs">
+      <DependentUpon>Master.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Page404.master.cs">
+      <DependentUpon>Page404.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Page404.master.designer.cs">
+      <DependentUpon>Page404.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Section.master.cs">
+      <DependentUpon>Section.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Section.master.designer.cs">
+      <DependentUpon>Section.master</DependentUpon>
+    </Compile>
+    <Compile Include="masterpages\Textpage.master.cs">
+      <DependentUpon>Textpage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterpages\Textpage.master.designer.cs">
+      <DependentUpon>Textpage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\EmailService.cs" />
+    <Compile Include="usercontrols\OpenLayers.ascx.cs">
+      <DependentUpon>OpenLayers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\OpenLayers.ascx.designer.cs">
+      <DependentUpon>OpenLayers.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Views\Web.config" />
+    <Content Include="config\xsltExtensions.config" />
+    <Content Include="config\UrlRewriting.config" />
+    <Content Include="config\umbracoSettings.config" />
+    <Content Include="config\trees.config" />
+    <Content Include="config\tinyMceConfig.config" />
+    <Content Include="config\Skinning.config" />
+    <Content Include="config\scripting.config" />
+    <Content Include="config\restExtensions.config" />
+    <Content Include="config\metablogConfig.config" />
+    <Content Include="config\log4net.config" />
+    <Content Include="config\FileSystemProviders.config" />
+    <Content Include="config\feedProxy.config" />
+    <Content Include="config\ExamineSettings.config" />
+    <Content Include="config\ExamineIndex.config" />
+    <Content Include="config\EmbeddedMedia.config" />
+    <Content Include="config\Dashboard.config" />
+    <Content Include="config\ClientDependency.config" />
+    <Content Include="config\BaseRestExtensions.config" />
+    <Content Include="config\applications.config" />
+    <Content Include="config\404handlers.config" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="macroScripts\gallery\FrontpageCarrousel.cshtml" />
+    <Content Include="macroScripts\gallery\FrontpageSlider.cshtml" />
+    <Content Include="macroScripts\gallery\PageSlider.cshtml" />
+    <Content Include="macroScripts\gallery\TextpageGallery.cshtml" />
+    <Content Include="macroScripts\navigation\BiltorvetSubmenu.cshtml" />
+    <Content Include="macroScripts\navigation\BreadCrumb.cshtml" />
+    <Content Include="macroScripts\navigation\FooterMenu.cshtml" />
+    <Content Include="macroScripts\navigation\MTopMenu.cshtml" />
+    <Content Include="macroScripts\navigation\SubMenu.cshtml" />
+    <Content Include="macroScripts\navigation\TopMenu.cshtml" />
+    <Content Include="macroScripts\tiles\AccessoriesTeaserList.cshtml" />
+    <Content Include="macroScripts\tiles\AccessoriesTiles.cshtml" />
+    <Content Include="macroScripts\tiles\AutodesktopNewsTeaserList.cshtml" />
+    <Content Include="macroScripts\tiles\BiltorvetNewsTeaserList.cshtml" />
+    <Content Include="macroScripts\tiles\ContentItemList.cshtml" />
+    <Content Include="macroScripts\tiles\DepartmentTiles.cshtml" />
+    <Content Include="macroScripts\tiles\EmplyeeTiles.cshtml" />
+    <Content Include="macroScripts\tiles\EmplyeeTilesAlt.cshtml" />
+    <Content Include="macroScripts\tiles\FrontpageTeaser.cshtml" />
+    <Content Include="macroScripts\tiles\FrontpageTiles.cshtml" />
+    <Content Include="macroScripts\tiles\GarageCarTiles.cshtml" />
+    <Content Include="macroScripts\tiles\MultiTilesFourColumnsTiles.cshtml" />
+    <Content Include="macroScripts\tiles\MultiTilesFourColumnsTilesSplit.cshtml" />
+    <Content Include="macroScripts\tiles\MultiTilesTreeColumns.cshtml" />
+    <Content Include="macroScripts\tiles\NewCarsBrandTiles.cshtml" />
+    <Content Include="macroScripts\tiles\NewCarsTiles.cshtml" />
+    <Content Include="macroScripts\tiles\NewsList.cshtml" />
+    <Content Include="macroScripts\tiles\ProductTiles.cshtml" />
+    <Content Include="macroScripts\tiles\SearchOrdninary.cshtml" />
+    <Content Include="macroScripts\tiles\SearchTile.cshtml" />
+    <Content Include="macroScripts\tiles\SingleTile.cshtml" />
+    <Content Include="macroScripts\tiles\Tabspane.cshtml" />
+    <Content Include="macroScripts\tiles\TabspaneShareholders.cshtml" />
+    <Content Include="macroScripts\tiles\TilesFourColumnsTiles.cshtml" />
+    <Content Include="macroScripts\tiles\UsedCarDetailTiles.cshtml" />
+    <Content Include="macroScripts\tiles\UsedCarsTiles.cshtml" />
+    <Content Include="masterpages\Frontpage.master" />
+    <Content Include="masterpages\Master.master" />
+    <Content Include="masterpages\Page404.master" />
+    <Content Include="masterpages\Section.master" />
+    <Content Include="masterpages\Textpage.master" />
+    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="xslt\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BI.Repository\BI.Repository.csproj">
+      <Project>{a0fbdfc3-d548-4375-a35c-f3f8677e06ca}</Project>
+      <Name>BI.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50379/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\UmbracoCms.6.1.3\build\net45\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.6.1.3\build\net45\UmbracoCms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,78 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<List<GarageAccessories>> tileListList = NodeRepository.Split(NodeRepository.GetGarageCarTileList(@Model.contentRelatedElements));
+    string customClasses = "groupLeft ";
+
+}
+    @for (int j = 0; j < tileListList.Count; j++)
+    {
+        <div class='row fourColumns carBrandTiles @(j == tileListList.Count -1 ? " last ": "") clearfix '>
+
+        @for (int i = 0; i < tileListList[j].Count; i++)
+        {
+
+            customClasses = "groupLeft";
+             if(i != 0 && (i+1) % 4 == 0)
+            {
+                customClasses = "groupLeft last";
+            }
+
+
+            <div class="@customClasses">
+                @if (!string.IsNullOrEmpty(tileListList[j][i].TileItem.Header))
+                {
+                        if (tileListList[j][i].Link != null && !string.IsNullOrEmpty(tileListList[j][i].Link.Url))
+                        {
+                            <h2><a class="tileLink " target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "")' href="@tileListList[j][i].Link.Url" >@tileListList[j][i].TileItem.Header</a></h2>
+
+                        }
+                        else{
+                            <h2><a class="tileLink " target='@(tileListList[j][i].TileItem.LinkIntern.NewWindow ? "_blank" : "")'  href="@tileListList[j][i].TileItem.LinkIntern.Url" >@tileListList[j][i].TileItem.Header</a></h2>
+                        }
+                }
+                <div class="tileLeft">
+                @if (tileListList[j][i].TileItem.PictureUrl != "")
+                {
+   
+                    if (tileListList[j][i].Link != null && !string.IsNullOrEmpty(tileListList[j][i].Link.Url))
+                    {
+                        <a  class="tileLink imageMarginBottom" target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "")'  href="@tileListList[j][i].Link.Url" >
+                            <img src="@CropUp.GetUrl(tileListList[j][i].TileItem.PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+                            <span class="tileImageBackground"></span>
+                        </a>
+                    }
+                    else{
+                        <a  class="tileLink imageMarginBottom" target='@(tileListList[j][i].TileItem.LinkIntern.NewWindow ? "_blank" : "")'  href="@tileListList[j][i].TileItem.LinkIntern.Url" >
+                            <img src="@CropUp.GetUrl(tileListList[j][i].TileItem.PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+                            <span class="tileImageBackground"></span>
+                        </a>
+                    }
+                }
+
+                    <div class="intro">
+                        @Html.Raw(tileListList[j][i].TileItem.Description )                                 
+                    </div>
+                    <div>
+                        @if (tileListList[j][i].Link != null && !string.IsNullOrEmpty(tileListList[j][i].Link.Url))
+                        {
+                            <a  class="tileButton" target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "")'  href="@tileListList[j][i].Link.Url" ><span>@tileListList[j][i].TileItem.LinkIntern.LinkText</span></a>
+                        }
+                        else{
+                            <a  class="tileButton" target='@(tileListList[j][i].TileItem.LinkIntern.NewWindow ? "_blank" : "")'  href="@tileListList[j][i].TileItem.LinkIntern.Url" ><span>@tileListList[j][i].TileItem.LinkIntern.LinkText</span></a>
+                        }
+                    </div>
+                </div>
+            </div>
+                    
+     
+        }
+        </div>
+    }    
+ 
+
+
+

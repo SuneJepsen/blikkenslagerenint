@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Frontpage.master.cs" Inherits="BI.Umbraco.masterpages.Frontpage" %>
+<%@ Import Namespace="umbraco" %>
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <header>
+    </header>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <section id="top-motto" class="large">
+        <div class="container">
+            <div class="row">
+                <div class="hero-unit text-center">
+                    <div class="container">
+                        <h1 class="top-motto"><%:TopTeaser.Title %></h1>
+                        <h2 class="top-motto"><%:TopTeaser.TitleLong %></h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!--begin slider -->
+    <section class="large">
+                <umbraco:Macro ID="MacroFrontpageSlider" CustomModel="<%$ Code: base.GetCustomModel() %>" runat="server" FileLocation="~/macroscripts/gallery/FrontpageSlider.cshtml" />
+
+      
+    </section>
+    <!-- / end slider -->
+    <div class="strip">
+        <div class="container">
+            <!--if your site is 100%, this fixes the width of the content to the max width set in the style.css-->
+
+            <div class="hero-unit text-center">
+                <div class="headline">
+                    <h1 class="primary-color">   <%:MiddleTeaser.TitleLong %></h1>
+                </div>
+                <!-- close headline-->
+                <div class="content">
+                   <%:MiddleTeaser.Manchet %>
+                </div>
+                    <p><a href=" <%:MiddleTeaser.Link %>" class="btn btn-primary btn-large custom-btn" title="demo link to nowhere"><%=library.GetDictionaryItem("ForsideKnap1")%></a></p>
+
+                <!-- close content-->
+            </div>
+            <!--close hero-unit center-->
+        </div>
+        <!-- close container-->
+    </div>
+    <!-- close strip-->
+
+   
+
+
+    <section class="block">
+        <div class="container">
+
+            <div class="row-fluid">
+                <div class="span4">
+                    <h3 class="short_headline"><span><%=library.GetDictionaryItem("ForsideTitel1")%></span></h3>
+                                 <%:StandardValueItem.Description %>
+
+
+                </div>
+                <umbraco:Macro runat="server" ID="MacroFrontpageTestimonials"  FileLocation="~/macroscripts/gallery/FrontpageTestimonials.cshtml" />
+
+             
+            </div>
+        </div>
+        <!-- Example row of columns -->
+
+    </section>
+
+     <section class="strip">
+
+        <div class="container">
+                <umbraco:Macro runat="server" ID="Macro1"  FileLocation="~/macroscripts/teasers/FrontpageBottomTeaser.cshtml" />
+
+           
+
+        </div>
+        <!--close .container-->
+    </section>
+    <!--close .strip-->
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //Frontpage.init();
+        });
+
+
+    </script>
+
+</asp:Content>

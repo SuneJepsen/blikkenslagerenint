@@ -1,0 +1,42 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using BI.Repository.Entities;
+
+@{
+    string idcsv = @Model.testimonials.ToString();
+    var testimonialsItems = NodeRepository.GetFrontpageTestimonials(idcsv);
+
+}
+
+
+<div class="rotating-testimonials span8">
+    <!--"rotating-testimonials" is a required class-->
+
+    <h3 class="short_headline"><span>@Dictionary.ForsideTitel2</span></h3>
+    <div class="panels">
+        @for (int i = 0; i < testimonialsItems.Count(); i++)
+        {
+            <div id="t@(i)">
+                <blockquote>
+                    <p>@testimonialsItems[i].Description</p>
+                    <footer>@testimonialsItems[i].TestimonialFrom</footer>
+                </blockquote>
+            </div>
+        }
+
+
+    </div>
+    <!--close panels-->
+    <ul class="tabs">
+        @for (int i = 0; i < testimonialsItems.Count(); i++)
+        {
+            <li class="tab"><a href="#t@(i)">@testimonialsItems[i].TestimonialFrom</a></li>
+
+        }
+    </ul>
+    <p class="right"><a href="testimonials.html" class="btn btn-small btn-very-subtle">@Dictionary.ForsideKnap2</a></p>
+</div>
+
+
+
+

@@ -1,0 +1,242 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Portfolio.master.cs" Inherits="BI.Umbraco.masterpages.Portfolio" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+        <header class="jumbotron subhead" id="overview">
+        </header>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <section class="block textpage">
+        <div class="container clearfix" id="main-content">
+            <div class="pagination pagination-right no-margin pagination-mini">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li class="active"><span>3</span></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
+            <div class="row-fluid">
+                <umbraco:Macro   runat="server" FileLocation="~/macroscripts/gallery/PortfolioList.cshtml" />
+
+
+              <%--  <!--trigger the filter at mobile sizes-->
+                <div class="mobile-filter-trigger">Filter <i class="icon-plus"></i></div>
+                <div class="filter-clone"></div>
+
+                <div class="filter-box clearfix">
+                    <ul class='sort'>
+                        <li><a class="active" href="#" data-filter="*">Alle</a></li>
+                        <li><a href="#" data-filter=".letter-press">Inddækninger af tage</a></li>
+                        <li><a href="#" data-filter=".identity">Kviste</a></li>
+                        <li><a href="#" data-filter=".motion">Tårne</a></li>
+                        <li><a href="#" data-filter=".art">Mure</a></li>
+                        <li><a href="#" data-filter=".web-design">Facader</a></li>
+                        <li><a href="#" data-filter=".featured">Blandet</a></li>
+                    </ul>
+                </div>
+
+
+                <ul class="gallery four_col clearfix">
+                    <!-- three_col four_col two_col -->
+                   
+                    <li class="letter-press featured"><a class="hover" href="/portfolio/blik-og-facade.aspx">
+                        <img src="/images/lemmon-slider/921.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Blik og facade arbejde</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit"><a href="http://www.flickr.com/photos/adactio/5817823805/" target="_blank">CC BY 2.0  Jeremy Keith</a></span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="motion"><a href="portfolio-video.html" class="videoicon hover">
+                       <img src="/images/lemmon-slider/1001.jpg" alt="tag" /><span class="plus"></span><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-video.html">Erhverv og industri</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="letter-press identity"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/9.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Renovering af tagrender</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit"><a href="http://www.flickr.com/photos/fontfont/5573878636/in/photostream/" target="_blank">CC BY 2.0 FontFont</a></span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="motion"><a href="portfolio-video.html" class="videoicon hover">
+                        <img src="/images/lemmon-slider/12.jpg" alt="The Meth Minute 39" /><span class="videoicon"></span><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-video.html">Tag- og facade arbejdee</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="web-design"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/14.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">VVS</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit">Christina (me)</span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="letter-press featured"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/17.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Skiffertag</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit"><a href="http://www.flickr.com/photos/fontfont/4830134044/in/photostream/">CC BY 2.0  FontFont</a></span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="letter-press"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/1161.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Smedearbejde</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit"><a href="http://www.flickr.com/photos/fontfont/4839972619/" target="_blank">CC BY 2.0  FontFont</a></span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="web-design"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/981.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Tagrender</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="web-design"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/1051.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Badeværelse</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Badeværelser</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="identity "><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/911.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Gulvvarme</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="art"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/1001.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Solceller</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="letter-press motion "><a href="portfolio-video.html" class="videoicon hover">
+                        <img src="http://img.youtube.com/vi/zIeWZjmeGxg/0.jpg" alt="Video" /><span class="videoicon"></span><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-video.html">Jordvarme</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="letter-press identity "><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/16.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Pilefyr</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                            <span class="credit"><a href="http://www.flickr.com/photos/theilluminated/5182516884/" target="_blank">CC BY 2.0  Jon Ashcroft</a></span>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="identity "><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/1101.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Smedearbejde</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="art"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/14.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Tagarbejde</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="identity "><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/1031.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Skifertag</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                    <li class="art"><a class="hover" href="portfolio-single.html">
+                        <img src="/images/lemmon-slider/951.jpg" alt="" /><span class="plus"></span></a>
+                        <div class="entry-summary">
+                            <h4><a href="portfolio-single.html">Maler</a></h4>
+                            <p>Vi udfører alle former for blikkenslagerarbejde fra tagrender til moderne butiks- og bygningsdesign i både zink og kobber.</p>
+
+                            <div class="categories"><a href="#">Blik Kobber</a>, <a href="#">Zink</a></div>
+                        </div>
+                        <!--close entry-summary-->
+                    </li>
+                </ul>--%>
+      <%--          <div class="pagination pagination-centered no-margin pagination-footer pagination-mini">
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><span>3</span></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>--%>
+            </div>
+            <!--close row-fluid-->
+
+        </div>
+        <!--close .container role="main-content" -->
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+</asp:Content>

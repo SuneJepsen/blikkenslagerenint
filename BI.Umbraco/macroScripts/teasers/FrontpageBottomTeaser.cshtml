@@ -1,0 +1,33 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+
+    var teaserItems = NodeRepository.GetTeasers(@Model.bottomTeasers);
+   
+}
+
+
+
+
+ <h3 class="short_headline"><span>@Dictionary.ForsideTitel3</span></h3>
+            <div class="row-fluid">
+                @foreach (var teaser in teaserItems)
+                {
+                    <div class="span4">
+                       <div class="span3">
+                        <a class="biggieicon primary-color" href="#">@teaser.Icon</a>
+                    </div>
+                    <div class="span9">
+                        <h4>@teaser.Title</h4>
+                        @teaser.Description
+                        <p><a href="@teaser.Link" class="btn custom-btn btn-small btn-very-subtle">@Html.Raw(Dictionary.ForsideKnap3)</a></p>
+                    </div>
+                </div>
+                }
+                
+              
+            </div>
+            <!--close row-fluid -->

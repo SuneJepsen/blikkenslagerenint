@@ -1,0 +1,100 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using BI.Repository.Entities;
+@using BI.Repository.DataAccessLayer;
+@using System.Configuration;
+
+@{
+    List<BilerTilWebXmlFeed> carlist = new List<BilerTilWebXmlFeed>();
+    DAL dal = new DAL();
+    string url = Request.Url.AbsoluteUri;
+
+    bool showTiles = @Model.showUsedCars == null ? false : @Model.showUsedCars;
+    if (!showTiles)
+    {
+        return;
+    }
+    
+    
+    
+    if(url.Contains("alfa-romeo"))
+    {
+        carlist = dal.Get4CarsByBrand("Alfa Romeo");
+    }
+    else if(url.Contains("fiat"))
+    {
+        carlist = dal.Get4CarsByBrand("Fiat");
+
+    }
+    else if(url.Contains("mazda"))
+    {
+        carlist = dal.Get4CarsByBrand("Mazda");
+    }
+    else if(url.Contains("kia"))
+    {
+        carlist = dal.Get4CarsByBrand("Kia");
+    }
+    else if(url.Contains("renault"))
+    {
+        carlist = dal.Get4CarsByBrand("Renault");
+    }
+    else if(url.Contains("seat"))
+    {
+        carlist = dal.Get4CarsByBrand("Seat");
+    }
+
+    string ImageUrl = ConfigurationManager.AppSettings["imageUrl"];
+    string ImageUrlSize = "_1.jpg&size=200";
+    List<List<BilerTilWebXmlFeed>> tileListList = new List<List<BilerTilWebXmlFeed>>();
+    string customClasses = "groupLeft ";
+    tileListList = NodeRepository.Split(carlist);
+    customClasses = "groupLeft ";
+
+}
+<h1>Lignende brugte biler</h1>
+    @for (int j = 0; j < tileListList.Count; j++)
+    {
+        <div class='row fourColumns carTiles @(j == tileListList.Count -1 ? " last ": "") clearfix '>
+        @for (int i = 0; i < tileListList[j].Count; i++)
+        {
+            customClasses = "groupLeft";
+             if(i != 0 && (i+1) % 4 == 0)
+            {
+                customClasses = "groupLeft last";
+            }
+
+            <div class="@customClasses">
+                <h2 class="headingFixedHeight"> <a class="tileLink" target='_blank' href='/brugte-biler/bil/@tileListList[j][i].BBilID' >@tileListList[j][i].BBilFabrikat @tileListList[j][i].BBilModel  </a></h2>
+                <div class="tileLeft">
+                    <a class="tileLink" target="_blank"  href='/brugte-biler/bil/@tileListList[j][i].BBilID'  >
+                                <img src='@ImageUrl@tileListList[j][i].BBilID@ImageUrlSize'
+                    alt="Autohusetvestergaard-@tileListList[j][i].BBilModel" height="129" onerror="this.src='/images/no-image-car.jpg'" />
+                        <span class="tileImageBackground"></span>
+                    </a>                
+                    <div class="intro height-auto">
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].BBilVariant)){ <div>@tileListList[j][i].BBilVariant</div>  }else{<div>-</div>}
+                            @if (@tileListList[j][i].BBilModelAargang.HasValue){ <div><span><b>Årgang:</b></span> @tileListList[j][i].BBilModelAargang</div>  }else{<div><span>Årgang:</span>-</div>}
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].BBilPrisFormateret)) { <div><span><b>Pris:</b></span> @tileListList[j][i].BBilPrisFormateret</div>  }else{<div><span>Pris:</span>-</div>}
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].BBilKmPr1) && @tileListList[j][i].BBilKmPr1 != "0.000") { <div><span><b>Km:</b></span> @tileListList[j][i].BBilKmPr1</div>  }else{<div><span>Km:</span>-</div>}
+                    </div>
+                    <div>
+                        <a  class="tileButton"  target="_blank" href='/brugte-biler/bil/@tileListList[j][i].BBilID'  ><span>Læs mere</span></a>
+                    </div>
+                </div>
+            </div>
+              
+     
+        }
+        </div>
+    }
+
+@if (tileListList.Any())
+{
+    <div class="row clearfix">
+        <div class="separator"></div>
+    </div>
+}  
+
+

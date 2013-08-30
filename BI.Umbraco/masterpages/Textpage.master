@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Textpage.master.cs" Inherits="BI.Umbraco.masterpages.Textpage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+                <h1><%:StandardValueItem.HeroTitle %></h1>
+                <p class="lead"><%:StandardValueItem.HeroDescription %></p>
+            </div>
+        </header>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <section class="block textpage">
+
+        <div id="main-section" class="container">
+            <div class="hgroup">
+                <h1><%:StandardValueItem.Header %></h1>
+                <h2><i class="icon-time"></i> <%:StandardValueItem.CreatedDate.ToString("dddd, dd MMMM yyyy") %></h2>
+                <umbraco:Macro ID="Macro1" runat="server" FileLocation="~/macroscripts/navigation/BreadCrumb.cshtml" />
+
+            </div>
+            <div class="row">
+                <div id="leftCol" class="span8">
+                    <article>
+                        <%=RenderImage() %>
+                        <%:StandardValueItem.BodyText1 %>
+                    </article>
+                </div>
+                <div id="sidebar" class="span4">
+                    <aside class="widget">
+                        <umbraco:Macro ID="Tabspane" runat="server" FileLocation="~/macroscripts/tiles/Tabspane.cshtml" />
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+ 
+</asp:Content>

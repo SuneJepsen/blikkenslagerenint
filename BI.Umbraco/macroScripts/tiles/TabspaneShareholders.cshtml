@@ -1,0 +1,34 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using BI.Repository.Entities;
+
+
+@{
+    
+    List<StandardValueItem> shareholderItems = NodeRepository.GetShareholderList();
+}
+	<!-- Blog Latest Tweets -->
+            <div class="latestNews">
+                <div class="headline"><h4>Seneste aktionærer nyheder</h4></div>
+                       <ul class="nav">
+                @for (int i = 0; i < shareholderItems.Count; i++)
+                {
+                    StandardValueItem item = shareholderItems[i];
+
+                    <li>
+                        <a href="@item.Link">@item.Header</a>
+
+                    </li>
+                
+
+                }
+            </ul>
+
+
+            </div>
+
+
+
+
+
+

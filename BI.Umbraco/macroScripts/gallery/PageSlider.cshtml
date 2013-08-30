@@ -1,0 +1,34 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<SliderItem> sliderItems = NodeRepository.PageSlider(@Model.carrouselImages);
+   
+}
+
+@if (sliderItems.Any())
+{
+    <div id="pageSlider" class="flexslider clearfix">
+    <ul class="slides">
+        @foreach (SliderItem item in sliderItems)
+        {
+        <li>
+    
+            <img src="@CropUp.GetUrl(item.PictureUrl, new ImageSizeArguments{ CropAlias="topimage"})"  />
+            <div class="flexSliderContent">
+                <h1 class="title">@item.Header</h1>
+                <div class="description">
+                    @Html.Raw(item.Description)
+                </div>
+   
+            </div>
+        </li>
+        }
+    </ul>
+</div>
+}
+
+
+

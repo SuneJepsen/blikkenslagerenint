@@ -1,0 +1,74 @@
+2013-08-20 00:11:49,371 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Determining hash of code files on disk
+2013-08-20 00:11:49,379 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Hash determined (took 5ms)
+2013-08-20 00:11:49,384 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2013-08-20 00:11:49,506 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 17 (took 121ms)
+2013-08-20 00:11:49,519 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2013-08-20 00:11:49,524 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 5ms)
+2013-08-20 00:11:49,525 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2013-08-20 00:11:49,530 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 4ms)
+2013-08-20 00:11:49,531 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2013-08-20 00:11:49,536 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 4 (took 5ms)
+2013-08-20 00:11:49,541 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2013-08-20 00:11:49,546 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 5ms)
+2013-08-20 00:11:49,547 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2013-08-20 00:11:49,552 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 5ms)
+2013-08-20 00:11:49,751 [6] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Initializing Examine and binding to business logic events
+2013-08-20 00:11:49,905 [6] INFO  Umbraco.Web.Search.ExamineEvents - [Thread 1] Adding examine event handlers for index providers: 3
+2013-08-20 00:11:49,968 [6] ERROR Umbraco.Core.PluginManager - [Thread 1] Error creating type Eksponent.CropUp.Umbraco.UmbracoDefaults
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Web.HttpException: Request is not available in this context
+   at System.Web.HttpContext.get_Request()
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrlInternal(Assembly assembly, String resourceName, Boolean htmlEncoded, Boolean forSubstitution, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.Handlers.AssemblyResourceLoader.GetWebResourceUrl(Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager, Boolean enableCdn)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Page owner, Type type, String resourceName, Boolean htmlEncoded, IScriptManager scriptManager)
+   at System.Web.UI.ClientScriptManager.GetWebResourceUrl(Type type, String resourceName)
+   at Eksponent.CropUp.Umbraco.UmbracoDefaults..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at Umbraco.Core.PluginManager.CreateInstances[T](IEnumerable`1 types, Boolean throwException)
+2013-08-20 00:11:49,978 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.IApplication
+2013-08-20 00:11:49,988 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.IApplication, found 7 (took 10ms)
+2013-08-20 00:11:50,020 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Starting resolution types of umbraco.interfaces.ITree
+2013-08-20 00:11:50,048 [6] INFO  Umbraco.Core.PluginManager - [Thread 1] Completed resolution of types of umbraco.interfaces.ITree, found 27 (took 27ms)
+2013-08-20 00:11:50,356 [6] INFO  umbraco.content - [Thread 8] Loading content from disk cache...
+2013-08-20 00:11:51,652 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of umbraco.cms.businesslogic.macro.IMacroEngine
+2013-08-20 00:11:51,659 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of umbraco.cms.businesslogic.macro.IMacroEngine, found 2 (took 6ms)
+2013-08-20 00:11:52,947 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of umbraco.interfaces.IDataType
+2013-08-20 00:11:52,971 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of umbraco.interfaces.IDataType, found 37 (took 23ms)
+2013-08-20 00:11:52,977 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of umbraco.interfaces.ITree
+2013-08-20 00:11:53,001 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of umbraco.interfaces.ITree, found 36 (took 24ms)
+2013-08-20 00:11:53,017 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Starting resolution types of umbraco.MacroEngines.IRazorDataTypeModel
+2013-08-20 00:11:53,023 [6] INFO  Umbraco.Core.PluginManager - [Thread 8] Completed resolution of types of umbraco.MacroEngines.IRazorDataTypeModel, found 2 (took 5ms)
+2013-08-20 00:12:19,630 [6] INFO  Umbraco.Core.PluginManager - [Thread 9] Starting resolution types of Umbraco.Core.Persistence.Mappers.BaseMapper
+2013-08-20 00:12:19,642 [6] INFO  Umbraco.Core.PluginManager - [Thread 9] Completed resolution of types of Umbraco.Core.Persistence.Mappers.BaseMapper, found 17 (took 13ms)
+2013-08-20 00:18:06,098 [6] INFO  umbraco.BasePages.BasePage - [Thread 37] User admin (Id: 0) logged in
+2013-08-20 00:18:06,147 [6] INFO  Umbraco.Core.PluginManager - [Thread 13] Starting resolution types of umbraco.BusinessLogic.Actions.IActionHandler
+2013-08-20 00:18:06,152 [6] INFO  Umbraco.Core.PluginManager - [Thread 13] Completed resolution of types of umbraco.BusinessLogic.Actions.IActionHandler, found 1 (took 5ms)
+2013-08-20 00:18:41,251 [6] INFO  Umbraco.Core.PluginManager - [Thread 37] Starting resolution types of umbraco.interfaces.ICacheRefresher
+2013-08-20 00:18:41,262 [6] INFO  Umbraco.Core.PluginManager - [Thread 37] Completed resolution of types of umbraco.interfaces.ICacheRefresher, found 22 (took 11ms)
+2013-08-20 00:18:59,022 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Globale elementer' with Id '1071' has been published.
+2013-08-20 00:18:59,134 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Teasers' with Id '1072' has been published.
+2013-08-20 00:18:59,165 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Topteaser' with Id '1076' has been published.
+2013-08-20 00:18:59,255 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Midtteaser' with Id '1077' has been published.
+2013-08-20 00:18:59,340 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Tagarbejde' with Id '1136' has been published.
+2013-08-20 00:18:59,433 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Rørarbejde' with Id '1137' has been published.
+2013-08-20 00:18:59,522 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Smedearbejde' with Id '1138' has been published.
+2013-08-20 00:18:59,613 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Testimonials' with Id '1073' has been published.
+2013-08-20 00:18:59,645 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Albert Einstein' with Id '1074' has been published.
+2013-08-20 00:18:59,708 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Maya Angelou' with Id '1075' has been published.
+2013-08-20 00:18:59,769 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Forside karrousel' with Id '1080' has been published.
+2013-08-20 00:18:59,804 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Blik og facade' with Id '1081' has been published.
+2013-08-20 00:18:59,884 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Skråtrender' with Id '1082' has been published.
+2013-08-20 00:18:59,964 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Blik og hammer' with Id '1083' has been published.
+2013-08-20 00:19:00,043 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Kvist' with Id '1135' has been published.
+2013-08-20 00:19:00,116 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Kategori' with Id '1086' has been published.
+2013-08-20 00:19:00,149 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Inddækning af tage' with Id '1088' has been published.
+2013-08-20 00:19:00,203 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Kviste' with Id '1089' has been published.
+2013-08-20 00:19:00,256 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Tagrender' with Id '1140' has been published.
+2013-08-20 00:19:00,313 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 13] Content 'Facader' with Id '1090' has been published.
+2013-08-20 00:19:07,726 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 33] Content 'Globale elementer' with Id '1071' has been published.
+2013-08-20 00:19:17,220 [6] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 33] Content 'Globale elementer' with Id '1071' has been published.

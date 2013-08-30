@@ -1,0 +1,30 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using umbraco.presentation.install.utills
+
+@{
+    List<StandardValueItem> frontpageTeaser = NodeRepository.GetFrontpageTeaser(@Model.frontpageTeaser);
+
+}
+@if (frontpageTeaser.Any())
+{
+    <section class="block frontpageteaser">
+        <div class="container-fluid">
+                @for (int j = 0; j < frontpageTeaser.Count; j++)
+                {
+                    <div class="row">
+                        <div class="span12">
+                            <h1>@frontpageTeaser[j].Header</h1>
+                            @frontpageTeaser[j].Description
+
+                            <a href="@frontpageTeaser[j].Link" class="btn">Læs mere</a>
+
+                        </div>
+                    </div>
+                }
+        
+        </div>
+    </section> 
+}  

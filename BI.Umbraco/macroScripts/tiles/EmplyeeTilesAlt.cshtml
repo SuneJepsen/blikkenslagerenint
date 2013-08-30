@@ -1,0 +1,67 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<List<Employee>> tileListList = NodeRepository.Split(NodeRepository.GetEmployeeTileList(@Model.contentRelatedElements));
+    string customClasses = "groupLeft ";
+
+}
+    @for (int j = 0; j < tileListList.Count; j++)
+    {
+        <div class='row fourColumns  @(j == tileListList.Count -1 ? " last ": "") clearfix '>
+
+        @for (int i = 0; i < tileListList[j].Count; i++)
+        {
+            customClasses = "groupLeft";
+             if(i != 0 && (i+1) % 4 == 0)
+            {
+                customClasses = "groupLeft last";
+            }
+
+
+
+                <div class="@customClasses">
+                    <div class="tileLeft">
+                    @if (tileListList[j][i].PictureUrl != "")
+                    {
+                        <div class="tileImage">
+                            <img src="@CropUp.GetUrl(tileListList[j][i].PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+                            <span class="tileImageBackground"></span>
+
+                        </div>
+
+                    }
+
+                        <div class="intro height-auto">
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Name)){ <div class="line">@tileListList[j][i].Name</div>  }
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Title)){ <div  class="line">@tileListList[j][i].Title</div>  }
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Email)){ <div class="email line"><a href="mailto:@tileListList[j][i].Email" >Send E-mail</a></div>      }
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Street)){<div  class="line">@tileListList[j][i].Street</div>  }
+                             @if (!string.IsNullOrEmpty(@tileListList[j][i].City)){<div  class="line">@tileListList[j][i].ZipCode&nbsp;@tileListList[j][i].City</div>  }
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Phone)){ <div  class="line"> <span>Tlf.:&nbsp;</span>@tileListList[j][i].Phone</div>   }
+                            @if (!string.IsNullOrEmpty(@tileListList[j][i].Mobile)){<div  class="line"><span>Mobil:&nbsp;</span>@tileListList[j][i].Mobile</div>   }
+                                                          
+                        </div>
+                        <div>
+                           
+                        </div>
+                    </div>
+                </div>
+                   
+     
+        }
+        </div>
+    }  
+
+@if (tileListList.Any())
+{
+    <div class="row clearfix">
+        <div class="separator"></div>
+    </div>
+}  
+ 
+
+
+

@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Contactpage.master.cs" Inherits="Bi.Umbraco.masterpages.Contactpage" %>
+<%@ Register Src="~/usercontrols/OpenLayers.ascx" TagPrefix="uc1" TagName="OpenLayers" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+    
+            </div>
+        </header>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+    <section class="strip">
+        <div class="container">
+            <!--if your site is 100%, this fixes the width of the content to the max width set in the style.css-->
+
+            <div class="hero-unit text-center">
+          
+                <!-- close headline-->
+                <div class="content">
+                    <p>Alt i blikkenslager arbejde og mindre VVS opgaver
+Inddækninger af tage, kviste, tårne, mure og lignende udføres i bl.a.  kobber, aluminium og zink. Jeg udfører opgaver i hele landet så ring og hør nærmere om dit projekt.</p>
+                 
+                </div>
+                <!-- close content-->
+            </div>
+            <!--close hero-unit center-->
+        </div>
+        <!-- close container-->
+    </section>
+    <!-- close strip-->
+    <section class="large map">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="map">
+                     <uc1:OpenLayers runat="server" ID="ucOpenLayers" />
+
+                </div>
+        </div>
+        <!-- Example row of columns -->
+        </div>
+    </section>
+    <section class="block contactpage">
+
+        <div  class="container">
+        <div class="row-fluid ">
+		<div class="span7" id="contactFormular">
+					<fieldset>
+						<div class="control-group">
+							<label for="name">Navn</label>
+							<input type="text" class="span10" name="name" id="name" />
+						</div>
+						<div class="control-group">
+							<label for="phone">Tlf.</label>
+							<input type="text" class="span10" name="phone" id="phone" />
+						</div>
+						<div class="control-group">
+							<label for="email">Email</label>
+							<input type="email" class="span10" name="email" id="email" />
+						</div>
+						<div class="control-group">
+							<label for="message">Besked</label>
+							<textarea class="span10" name="message" id="message" rows="3"></textarea>
+						</div>
+						<button type="submit" id="sendContactFormular" class="btn btn-primary btn-large">Send</button>
+                            <button type="reset" class="reset btn btn-primary btn-large" id="cancelContactFormular">Annullere</button>
+                                    <img src="/images/ajax-loader.gif" class="display-none" id="contactFormularLoader" />
+                        <br/>
+                        <br/>
+                              <div class="alert alert-error display-none">
+                                    <strong>Advarsel!</strong> Udfyld venligst manglende felter (rødt).
+                                </div>
+                                <div class="clearfix alert alert-success display-none">
+                                    <strong>Meddelse!</strong>
+                                </div>
+					</fieldset>
+			</div>
+			<!--close span7 --> 
+			<div class="span5">
+				<p><strong>BlikkenslagerenInt</strong><br />
+                    Per Block Kristensen<br />
+					Hunderupgade 32<br />
+					5230 Odense M<br />
+                    CVR. nr. : 20372230<br/>
+					<strong>Tlf.:</strong> <a href="tel:66179195" class="tele">6617 9195</a><br />
+					<strong>Mobil.:</strong> <a href="tel:2047 6511" class="tele">2047 6511</a><br />
+					<strong>email:</strong> <a href="mailto:perbloch@gmail.com?subject=kontakt fra BlikkenslagerenInt.dk&body=Ring venligst til mig på telefon : ">Send mig en mail</a> </p>
+           
+				
+			</div>
+			<!--close span5 -->
+			
+		
+		</div>
+		<!--close row-fluid--> 
+    
+
+        </div>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+       <script src="/scripts/openlayers/OpenLayers.js"></script>
+    <script>
+        jQuery(function () {
+            Contactpage.init();
+        });
+    </script>
+</asp:Content>

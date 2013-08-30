@@ -1,0 +1,84 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<StandardValueItem> biltorvetNewsList = NodeRepository.GetNewslists("BiltorvetNews");
+    List<StandardValueItem> autotorvetNewsList = NodeRepository.GetNewslists("AutodesktopNews");
+    List<StandardValueItem> productList = NodeRepository.GetProductlists();
+
+}
+<div class="span4 frontpage">
+       <div class="page-header">
+                <h1>Biltorvet</h1>
+            </div>   
+    @for (int j = 0; j < biltorvetNewsList.Count; j++)
+    {
+         
+        <div class="span12">
+            <h2>@biltorvetNewsList[j].Header</h2>
+            <i class="icon-calendar"></i> @biltorvetNewsList[j].CreatedDate.ToString("dddd, dd MMMM yyyy")
+
+            @Html.Raw(biltorvetNewsList[j].Description)
+            <p>
+                @if (biltorvetNewsList[j].OwnSinglePage)
+                {
+                    <a class="btn" href="@biltorvetNewsList[j].Link">Læs mere &raquo;</a>
+                }
+                else
+                {
+                    <a class="btn" href="/biltorvet-nyheder.aspx">Læs mere &raquo;</a>
+                }
+            </p>            
+
+        </div>
+    } 
+</div>
+    <div class="span4 frontpage">
+        @for (int j = 0; j < autotorvetNewsList.Count; j++)
+        {
+            <div class="page-header">
+                <h1>Autodesktop</h1>
+            </div>            
+            <div class="span12">
+                <h2>@autotorvetNewsList[j].Header</h2>
+                <i class="icon-calendar"></i> @biltorvetNewsList[j].CreatedDate.ToString("dddd, dd MMMM yyyy")
+
+                @Html.Raw(autotorvetNewsList[j].Description)
+                <p>
+                    @if (autotorvetNewsList[j].OwnSinglePage)
+                    {
+                        <a class="btn" href="@autotorvetNewsList[j].Link">Læs mere &raquo;</a>
+                    }
+                    else
+                    {
+                        <a class="btn" href="/autodesktop-nyheder.aspx">Læs mere &raquo;</a>
+                    }
+                </p>
+            </div>
+        }  
+    </div>
+
+<div class="span4 frontpage">
+      <div class="page-header">
+                <h1>Produkter</h1>
+            </div>
+    @for (int j = 0; j < productList.Count; j++)
+    {
+          
+        <div class="span12">
+            <h2>@productList[j].Header</h2>
+            <i class="icon-calendar"></i> @biltorvetNewsList[j].CreatedDate.ToString("dddd, dd MMMM yyyy")
+            @Html.Raw(productList[j].Description)
+            <p><a class="btn" href="@productList[j].Link">Læs mere &raquo;</a></p>
+        </div>
+    } 
+</div>
+
+
+
+
+
+
+

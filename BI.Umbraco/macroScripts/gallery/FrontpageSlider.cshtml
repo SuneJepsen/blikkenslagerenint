@@ -1,0 +1,39 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+
+    var sliderItems = NodeRepository.GetFrontpageSlider(@Model.frontpageSlider);
+   
+}
+
+
+
+
+
+<div class="lemmon-wrap clearfix">
+    <div id="lemmon-slider" class="lemmon-slider">
+        <ul>
+            @foreach (SliderItem sliderItem in sliderItems)
+            {
+                <li><a href="portfolio-single.html">
+                    <img src="@sliderItem.Image.PictureUrl" alt="@sliderItem.Image.AltText" /></a>
+                    <div class="summary">
+                        <a href="@sliderItem.Link">
+                            <h3>@sliderItem.Header</h3>
+                            @sliderItem.Description
+                        </a>
+                    </div>
+                </li>
+            }
+
+        </ul>
+
+    </div>
+    <div class="controls">
+        <a href="javascript:void(0)" class="prev-page"><i class="e-icon-left-open-big"></i></a><a href="javascript:void(0)" class="next-page"><i class="e-icon-right-open-big"></i></a>
+    </div>
+    <!-- / .controls -->
+</div>

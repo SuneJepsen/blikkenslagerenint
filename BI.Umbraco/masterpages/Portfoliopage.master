@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" CodeBehind="Portfoliopage.master.cs" Inherits="BI.Umbraco.masterpages.Portfoliopage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
+    <section class=" large-green-gradient">
+        <header class="jumbotron subhead" id="overview">
+            <div class="container">
+            </div>
+        </header>
+    </section>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContentPlaceholder" runat="server">
+   <!-- begin #page - the container for everything but header -->
+<div id="page">
+	<div class="hero-unit">
+		<div class="container">
+			<h2>Blik og facader</h2>
+		</div>
+		<!--close container--> 
+	</div>
+	<!--close hero-unit-->
+	
+	<div class="container clearfix" id="main-content"><!--begin main content-->
+		<div class="row-fluid portfolio-detail"><!--begin row-fluid-->
+			
+			<div class="span7 offset1 image-slider" role="image-slider"> 
+				
+				<umbraco:Macro ID="Macro1" runat="server" FileLocation="~/macroscripts/gallery/Portfoliopage.cshtml" />
+
+				
+			</div>
+			<!-- close span7 primary-column-->
+			
+			<section class="span4 project-description" role="project-description">
+				<%:StandardValueItem.BodyText %>
+				<%--<h6>Image Credit:</h6>
+				<p><a href="http://www.flickr.com/photos/adactio/5817823805/" target="_blank" title="CC BY 2.0  Jeremy Keith">CC BY 2.0  Jeremy Keith.</a></p>
+				<h6>Tech Used:</h6>
+				<p>css3, html5, php, mySql, jQuery</p>
+				<h6>Role:</h6>
+				<p>designer, content producer, wearer of many hats</p>
+				<h6>Categories:</h6>
+				<p> <a href="#">Letter Press</a>, <a href="#">Featured</a> </p>--%>
+				<%=GetFile() %>
+				
+				<!-- add this button share -->
+				<%--<div class="addthis_toolbox addthis_default_style "> <a class="addthis_button_preferred_2"></a> <a class="addthis_button_preferred_3"></a> <a class="addthis_button_preferred_4"></a> <a class="addthis_button_compact"></a> <a class="addthis_counter addthis_bubble_style"></a> </div>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50b53d4c1f6b9a30"></script>--%> <!-- change this to your account--> 
+				<!-- AddThis Button END -->
+				
+			
+			</section>
+			<!--close project details section span4-->
+			
+			
+			<!--close related row-fluid--> 
+			
+		</div>
+		<!--close row-fluid portfolio-detail--> 
+		
+		<!--close .container id="main-content" --> 
+	</div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="FooterContentPlaceHolder" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="JavascriptContentPlaceholder" runat="server">
+ 
+</asp:Content>

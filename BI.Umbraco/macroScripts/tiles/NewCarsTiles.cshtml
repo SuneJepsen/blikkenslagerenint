@@ -1,0 +1,54 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<List<Car>> tileListList = new List<List<Car>>();
+    string customClasses = "groupLeft ";
+    tileListList = NodeRepository.Split(NodeRepository.GetCarTileList(@Model.Cars));
+    customClasses = "groupLeft ";
+
+}
+    @for (int j = 0; j < tileListList.Count; j++)
+    {
+        <div class='row fourColumns carTiles @(j == tileListList.Count -1 ? " last ": "") clearfix '>
+        @for (int i = 0; i < tileListList[j].Count; i++)
+        {
+            customClasses = "groupLeft";
+             if(i != 0 && (i+1) % 4 == 0)
+            {
+                customClasses = "groupLeft last";
+            }
+
+            <div class="@customClasses">
+                @if (!string.IsNullOrEmpty(tileListList[j][i].Header))
+                {
+                    <h2> <a class="tileLink" target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "" )' href="@tileListList[j][i].Link.Url" >@tileListList[j][i].Header</a></h2>
+                }
+                <div class="tileLeft">
+                @if (tileListList[j][i].PictureUrl != "")
+                {
+                    <a class="tileLink" target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "")' href="@tileListList[j][i].Link.Url" >
+                        <img src="@CropUp.GetUrl(tileListList[j][i].PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall"})" width="220" height="129"  />
+                        <span class="tileImageBackground"></span>
+                    </a>                
+                }
+                    <div class="intro height-auto">
+                    @Html.Raw(tileListList[j][i].Description)                                  
+                    </div>
+                    @if (tileListList[j][i].Link.Url != null && !string.IsNullOrEmpty(tileListList[j][i].Link.Url))
+                    {
+                    <div>
+                        <a  class="tileButton"  target='@(tileListList[j][i].Link.NewWindow ? "_blank" : "")' href="@tileListList[j][i].Link.Url" ><span>@tileListList[j][i].Link.LinkText</span></a>
+                    </div>
+                    }
+                </div>
+            </div>
+              
+     
+        }
+        </div>
+    }
+
+

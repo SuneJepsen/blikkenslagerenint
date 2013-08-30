@@ -1,0 +1,212 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+
+@{
+    List<List<TileItem>> tileListList = new List<List<TileItem>>();
+    string customClasses;
+
+    //Underlig måde at håndtere hvorpå ting skal vises!!
+    bool showTiles = @Model.hideTiles.ToString() != "False" || @Model.hideTiles.ToString() == "0" ? false : true;
+    if (showTiles)
+    {
+        tileListList = NodeRepository.Split(NodeRepository.GetTilelist());
+        customClasses = "groupLeft ";
+
+    }
+
+}
+    @for (int j = 0; j < tileListList.Count; j++)
+    {
+        <div class='row fourColumns carBrandTiles @(j == tileListList.Count -1 ? " last ": "") clearfix '>
+
+      @for (int i = 0; i < tileListList[j].Count; i++)
+        {
+            customClasses = "groupLeft";
+             if(i != 0 && (i+1) % 4 == 0)
+            {
+                customClasses = "groupLeft last";
+            }
+
+
+             switch (tileListList[j][i].NodeTypeAlias)
+             {
+                 case UmbracoEnum.DocumentTypeAlias.Textpage:
+                    <div class="@customClasses">
+                            @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                                @CreateImage(tileListList[j][i])                         
+
+                            <div class="intro">
+                                   @Html.Raw(tileListList[j][i].Description)                                  
+                            </div>
+                            <div>
+                                @CreateLink(tileListList[j][i])                         
+
+                            </div>
+                        </div>
+                    </div>
+                     break;
+                case UmbracoEnum.DocumentTypeAlias.BookService :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+                            <div class="intro">
+                                   @Html.Raw(tileListList[j][i].Description)                                  
+                            </div>
+                            <div>
+                                @CreateLink(tileListList[j][i])                         
+                            </div>
+                        </div>
+                    </div>
+                     break;
+            case UmbracoEnum.DocumentTypeAlias.BookTestDrive:
+                        <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+                            <div class="intro">
+                                   @Html.Raw(tileListList[j][i].Description)                                  
+                            </div>
+                            <div>
+                                @CreateLink(tileListList[j][i])                         
+                            </div>
+                        </div>
+                    </div>
+                     break;
+                case UmbracoEnum.DocumentTypeAlias.Sectionpage :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+
+                        <div class="tileLeft">
+                                @CreateImage(tileListList[j][i])                         
+
+                            <div class="intro">
+                                   @Html.Raw(tileListList[j][i].Description)                                  
+                            </div>
+                            <div>
+                                @CreateLink(tileListList[j][i])                         
+                            </div>
+                        </div>
+                    </div>
+                     break;
+                case UmbracoEnum.DocumentTypeAlias.CommercialVehicles :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+
+
+                            <div class="intro">
+                                   @Html.Raw(tileListList[j][i].Description)                                  
+                            </div>
+                            <div>
+                                @CreateLink(tileListList[j][i])                         
+                            </div>
+                        </div>
+                    </div>
+                     break; 
+                case UmbracoEnum.DocumentTypeAlias.GarageBrand :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                                @CreateImage(tileListList[j][i])                         
+                        </div>
+                    </div>
+                    break; 
+                case UmbracoEnum.DocumentTypeAlias.CarBrand:
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+                        </div>
+                    </div>
+                    break;
+                case UmbracoEnum.DocumentTypeAlias.Department :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+                        </div>
+                    </div>
+                    break; 
+                case UmbracoEnum.DocumentTypeAlias.Area :
+                    <div class="@customClasses">
+                        @CreateHeader(tileListList[j][i])                         
+                        <div class="tileLeft">
+                            @CreateImage(tileListList[j][i])                         
+                        </div>
+                    </div>
+                    break; 
+
+             }
+        }
+        </div>
+    }   
+@if (tileListList.Any())
+{
+    <div class="row clearfix">
+        <div class="separator"></div>
+    </div>
+}  
+
+@helper CreateLink(TileItem tileItem){
+    if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+    {
+        <a  class="tileButton"  target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" ><span>@tileItem.LinkIntern.LinkText</span></a>
+    }
+    else 
+    {
+        <a  class="tileButton"  href="@tileItem.LinkIntern.Url" ><span>@tileItem.LinkIntern.LinkText</span></a>
+    }
+}
+
+@helper CreateImage(TileItem tileItem){
+    if (tileItem.PictureUrl != "")
+    {
+
+        if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+        {
+            <a class="tileLink imageMarginBottom"  target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url"  >
+                <img src="@CropUp.GetUrl(tileItem.PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+                <span class="tileImageBackground"></span>
+
+            </a>        
+        }
+        else 
+        {
+            <a class="tileLink imageMarginBottom" href="@tileItem.LinkIntern.Url" >
+                <img src="@CropUp.GetUrl(tileItem.PictureUrl, new ImageSizeArguments { CropAlias = "tilesmall" })"  />
+                <span class="tileImageBackground"></span>
+            </a>
+        }
+   
+    }
+}
+@helper CreateHeader(TileItem tileItem){
+    
+    if (tileItem != null && !string.IsNullOrEmpty(tileItem.Header))
+    {
+        if (tileItem.LinkExtern != null && !string.IsNullOrEmpty(tileItem.LinkExtern.Url))
+        {
+            <h2><a class="tileLink " target='@(tileItem.LinkExtern.NewWindow ? "_blank" : "")'  href="@tileItem.LinkExtern.Url" >@tileItem.Header</a></h2>
+
+        }
+        else 
+        {
+            <h2><a class="tileLink "  href="@tileItem.LinkIntern.Url" >@tileItem.Header</a></h2>
+        }
+    }
+
+}
+  
+ 
+
+
+
+
+
+
+

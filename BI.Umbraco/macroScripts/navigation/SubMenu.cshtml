@@ -1,0 +1,19 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using umbraco.NodeFactory;
+@using BI.Repository.Entities;
+
+
+@{
+    List<NavigationItem> subMenu = NodeRepository.GetSubMenu(@Model.Id);
+
+}
+
+    <ul class="nav nav-list bs-docs-sidenav">
+    @for (int i = 0; i < subMenu.Count; i++)
+    {
+        
+        <li ><a href="#@subMenu[i].UrlName"><i class="icon-chevron-right"></i>@subMenu[i].NodeName</a></li>
+    }
+    </ul>
+ 

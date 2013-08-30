@@ -1,0 +1,139 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository;
+@using BI.Repository.Entities;
+
+
+@{
+    
+    List<NavigationItem> biltorvetItems = NodeRepository.GetBiltorvetSubmenu();
+    List<NavigationItem> autodesktopItems = NodeRepository.GetAutodesktopSubmenu();
+    UmbracoEnum.DocumentTypeAlias doctype = NodeRepository.GetDocType();
+}
+<h4>Nyheder</h4>
+@switch (doctype)
+{
+    case UmbracoEnum.DocumentTypeAlias.BiltorvetNews:
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#biltorvetTab">Biltorvet</a></li>
+            <li class=""><a data-toggle="tab" href="#autodesktopTab">Autodesktop</a></li>
+        </ul>
+        break;
+    case UmbracoEnum.DocumentTypeAlias.AutodesktopNews:
+      <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#autodesktopTab">Autodesktop</a></li>
+
+            <li class=""><a data-toggle="tab" href="#biltorvetTab">Biltorvet</a></li>
+        </ul>
+        break;
+    default:
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#biltorvetTab">Biltorvet</a></li>
+            <li class=""><a data-toggle="tab" href="#autodesktopTab">Autodesktop</a></li>
+        </ul>
+        break;
+}
+<div class="tab-content" id="myTabContent">
+    @if (doctype == UmbracoEnum.DocumentTypeAlias.BiltorvetNews)
+    {
+        <div id="biltorvetTab" class="tab-pane fade active in">
+            <ul class="nav">
+                @for (int i = 0; i < biltorvetItems.Count; i++)
+                {
+                    NavigationItem item = biltorvetItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                
+
+                }
+            </ul>
+
+        </div>
+        <div id="autodesktopTab" class="tab-pane fade">
+            <ul class="nav ">
+                @for (int i = 0; i < autodesktopItems.Count; i++)
+                {
+                    NavigationItem item = autodesktopItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else if (doctype == UmbracoEnum.DocumentTypeAlias.AutodesktopNews)
+    {
+        <div id="autodesktopTab" class="tab-pane fade active in">
+            <ul class="nav ">
+                @for (int i = 0; i < autodesktopItems.Count; i++)
+                {
+                    NavigationItem item = autodesktopItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                }
+            </ul>
+        </div>
+        <div id="biltorvetTab" class="tab-pane fade ">
+            <ul class="nav">
+                @for (int i = 0; i < biltorvetItems.Count; i++)
+                {
+                    NavigationItem item = biltorvetItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                
+
+                }
+            </ul>
+
+        </div>
+        
+    }
+     else 
+    {
+       <div id="biltorvetTab" class="tab-pane fade active in">
+            <ul class="nav">
+                @for (int i = 0; i < biltorvetItems.Count; i++)
+                {
+                    NavigationItem item = biltorvetItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                
+
+                }
+            </ul>
+
+        </div>
+        <div id="autodesktopTab" class="tab-pane fade">
+            <ul class="nav ">
+                @for (int i = 0; i < autodesktopItems.Count; i++)
+                {
+                    NavigationItem item = autodesktopItems[i];
+
+                    <li class="@(item.Class)">
+                        <a href="@item.Link">@item.NavText</a>
+
+                    </li>
+                }
+            </ul>
+        </div>
+        
+    }
+
+</div>
+
+
+
+

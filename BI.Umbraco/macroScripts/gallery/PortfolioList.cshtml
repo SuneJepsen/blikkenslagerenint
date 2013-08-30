@@ -1,0 +1,56 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using BI.Repository
+@using Eksponent.CropUp;
+@using BI.Repository.Entities;
+@using System.Configuration;
+
+@{
+    List<PortfolioItem> portfolioItems = NodeRepository.GetPortfolioList();
+    List<Category> categoryItems = NodeRepository.GetCategoryList();
+    
+
+}
+
+
+
+<!--trigger the filter at mobile sizes-->
+<div class="mobile-filter-trigger">Filter <i class="icon-plus"></i></div>
+<div class="filter-clone"></div>
+
+<div class="filter-box clearfix">
+    <ul class='sort'>
+        <li><a class="active" href="#" data-filter="*">Alle</a></li>
+        @foreach (var item in categoryItems)
+        {
+            <li><a href="#" data-filter=".@item.UrlName">@item.Header</a></li>
+
+        }
+    </ul>
+</div>
+
+
+<ul class="gallery four_col clearfix">
+    <!-- three_col four_col two_col -->
+    @foreach (var item in portfolioItems)
+    {
+
+        <li class="@item.CategoriesString">
+            <a class="hover" href="@(item.OwnSinglePage? item.Url : "#" )">
+                <img src="@item.PictureUrl" alt="" /><span class="plus"></span>
+            </a>
+            <div class="entry-summary">
+                <h4><a href="@(item.OwnSinglePage? item.Url : "#" )">@item.Header</a></h4>
+               @item.Description
+                <div class="categories">
+                    @foreach (var category in item.Categories)
+                    {
+                        <a href="#">@category.Header, </a>
+
+                    }
+                </div>
+@*                <span class="credit"><a href="http://www.flickr.com/photos/adactio/5817823805/" target="_blank">CC BY 2.0  Jeremy Keith</a></span>*@
+            </div>
+            <!--close entry-summary-->
+        </li>
+    }
+</ul>
