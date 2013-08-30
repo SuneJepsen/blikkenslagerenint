@@ -18,7 +18,7 @@ namespace BI.Repository
         {
             var ancestors = node.GetAncestorOrSelfNodes();
             var root = ancestors.FirstOrDefault(n => n.Level == 1);
-            return root;
+            return root; 
         }
         public static Node GetWebsiteRootMobile(Node node)
         {
