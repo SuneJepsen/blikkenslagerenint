@@ -41,7 +41,7 @@
                 <div class="content">
                    <%:MiddleTeaser.Manchet %>
                 </div>
-                    <p><a href=" <%:MiddleTeaser.Link %>" class="btn btn-primary btn-large custom-btn" title="demo link to nowhere"><%=library.GetDictionaryItem("ForsideKnap1")%></a></p>
+                    <p><a href=" <%:MiddleTeaser.Link.Url %>" target="<%:(MiddleTeaser.Link.NewWindow ? "_blank": "") %>" class="btn btn-primary btn-large custom-btn" title="demo link to nowhere"><%=library.GetDictionaryItem("ForsideKnap1")%></a></p>
 
                 <!-- close content-->
             </div>

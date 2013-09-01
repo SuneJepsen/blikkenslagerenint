@@ -23,7 +23,12 @@ namespace BI.Repository.Entities
         {
             Title = Node.GetProperty<string>("title");
             TitleLong = Node.GetProperty<string>("titleLong");
-            Link = Node.GetProperty<string>("link");
+
+            string id = Node.GetProperty<string>("link");
+            if(!string.IsNullOrEmpty(id))
+                Link = NodeRepository.GetLink(id, Node);
+
+
             Manchet = new HtmlString(Node.GetProperty<string>("manchet"));
             Description = new HtmlString(Node.GetProperty<string>("description"));
             Icon = new HtmlString(Node.GetProperty<string>("icon"));
@@ -34,6 +39,6 @@ namespace BI.Repository.Entities
         public HtmlString Manchet { get; set; }
         public HtmlString Description { get; set; }
         public HtmlString Icon { get; set; }
-        public string Link { get; set; }
+        public Link Link { get; set; }
     }
 }
