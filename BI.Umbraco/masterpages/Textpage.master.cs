@@ -14,10 +14,13 @@ namespace BI.Umbraco.masterpages
 {
     public partial class Textpage : System.Web.UI.MasterPage
     {
-        private readonly Node _currentNode = Node.GetCurrent();
+         private readonly Node _currentNode = Node.GetCurrent();
         private StandardValueItem _standardValueItem;
 
         protected StandardValueItem StandardValueItem { get { return _standardValueItem; } }
+        private FileItem _fileItem;
+
+        protected FileItem FileItem { get { return _fileItem; } }
 
         public Textpage()
         {
@@ -36,6 +39,7 @@ namespace BI.Umbraco.masterpages
         private void PageInit(object sender, EventArgs e)
         {
             _standardValueItem = new StandardValueItem(_currentNode);
+            _fileItem = new FileItem(_currentNode);
 
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -62,6 +66,16 @@ namespace BI.Umbraco.masterpages
                 return string.Format(img, picUrl, _standardValueItem.PageImage.AltText);
             }
             return string.Empty;
+        }
+
+        protected string GetFile()
+        {
+            string filePath = FileItem.GetFile();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                return "<h6> <a href=" + filePath + " class='btn btn-very-subtle'>" + FileItem.FileText + "</a> </h6>";
+            }
+            return "";
         }
 
     

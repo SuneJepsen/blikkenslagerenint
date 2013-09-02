@@ -5,7 +5,7 @@
 
 @{
 
-    var teaserItems = NodeRepository.GetTeasers(@Model.bottomTeasers);
+    List<TeaserItem> teaserItems = NodeRepository.GetTeasers(@Model.bottomTeasers);
    
 }
 
@@ -14,7 +14,7 @@
 
  <h3 class="short_headline"><span>@Dictionary.ForsideTitel3</span></h3>
             <div class="row-fluid">
-                @foreach (var teaser in teaserItems)
+                @foreach (TeaserItem teaser in teaserItems)
                 {
                     <div class="span4">
                        <div class="span3">
@@ -23,11 +23,35 @@
                     <div class="span9">
                         <h4>@teaser.Title</h4>
                         @teaser.Description
-                        <p><a href="@teaser.Link" class="btn custom-btn btn-small btn-very-subtle">@Html.Raw(Dictionary.ForsideKnap3)</a></p>
+                        <p>
+                                 @if (teaser.Link != null && !string.IsNullOrEmpty(teaser.Link.Url))
+                                 {
+                                    <a href="@teaser.Link.Url" target='@(teaser.Link.NewWindow ? "_blank" : "")'  class="btn custom-btn btn-small btn-very-subtle">@Html.Raw(Dictionary.ForsideKnap3)</a>
+
+                                 }
+                        </p>
                     </div>
                 </div>
                 }
                 
               
             </div>
-            <!--close row-fluid -->
+<!--close row-fluid -->
+
+
+@helper CreateLink(TileItem TileItem)
+{
+    if (TileItem != null && !string.IsNullOrEmpty(TileItem.Header))
+    {
+        if (TileItem.Link != null && !string.IsNullOrEmpty(TileItem.Link.Url))
+        {
+    <h2><a class="tileLink " target='@(TileItem.Link.NewWindow ? "_blank" : "")'  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+
+        }
+        else
+        {
+    <h2><a class="tileLink "  href="@TileItem.Link.Url" >@TileItem.Header</a></h2>
+        }
+    }  
+        
+}
