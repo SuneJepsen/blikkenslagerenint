@@ -26,11 +26,17 @@ namespace BI.Repository.Entities
 
             Description = new HtmlString(Node.GetProperty<string>("testimonialText"));
             TestimonialFrom = Node.GetProperty<string>("fromTestimonial");
+            string id = Node.GetProperty<string>("link");
+
+            if (!string.IsNullOrEmpty(id))
+                Link = NodeRepository.GetLink(id, Node);
+
         }
 
         public string TestimonialFrom { get; set; }
         public HtmlString Description { get; set; }
 
+        public Link Link { get; set; }
 
 
   
